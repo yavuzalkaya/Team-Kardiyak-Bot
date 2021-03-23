@@ -49,7 +49,7 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const kanal = message.guild.channel.cache.find(channel => channel.name === 'team-kardiyak-log')
+           const kanal = message.guild.channel.cache.find(channels => channels.name === 'team-kardiyak-log')
            const embed = new MessageEmbe()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
@@ -57,6 +57,7 @@ client.on('message', message => {
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            kanal.send(embed);
+           message.channel.send(`${user.tag} kişisi kicklenmiştir.`);
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -82,6 +83,14 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
+           const kanal = message.guild.channel.cache.find(channels => channels.name === 'team-kardiyak-log')
+           const embed = new MessageEmbe()
+           .setTitle('Kick')
+           .setDescription('Olay: `Kick`')
+           .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+           .addField('Kişi:', member)
+           .addField('Neden:', neden)
+           kanal.send(embed);
            message.channel.send(`${user.tag} kişisi banlanmıştır.`);
           })
           .catch(err => {
