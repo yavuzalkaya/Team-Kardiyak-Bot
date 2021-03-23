@@ -141,18 +141,19 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
-    const kanal = new MessageEmbed()
     const user = message.mention.users.first()
+    const kanal = new MessageEmbed()
     if (user) = {
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+      message.channel.send(kanal);
     } else {
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
-    }
       message.channel.send(kanal);
+    }
   }
 });
 
