@@ -49,7 +49,7 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const kanal = message.guild.channel.cache.find(channels => channels.name === 'team-kardiyak-log')
+           const kanal = message.guild.channel.cache.find(channels => channels.id === '823161505633534002')
            const embed = new MessageEmbe()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
@@ -83,7 +83,7 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           const kanal = message.guild.channel.cache.find(channels => channels.name === 'team-kardiyak-log')
+           const kanal = message.guild.channel.cache.find(channels => channels.id === '823161505633534002')
            const embed = new MessageEmbe()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
