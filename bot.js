@@ -10,16 +10,8 @@ var hedef = hedefimiz.hedef
 const { readdirSync } = require('fs'); // tanımlamalar
 const { join } = require('path'); // tanımlamalar
 
-client.commands= new Discord.Collection(); // komutları alıyoruz
-
 const prefix = işaret.prefix
 
-const commandFiles = readdirSync(join(__dirname, "komutlar")).filter(file => file.endsWith(".js")); // Belli bir klasörden belli .js uzantılı dosyaları buluyor.
-
-for (const file of commandFiles) {
-    const command = require(join(__dirname, "komutlar", `${file}`));
-    client.commands.set(command.kod, command); // Komutları Ayarlıyoruz.
-}
 
 client.on('ready', () => {
     client.user.setActivity('tk!help')
