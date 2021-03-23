@@ -230,6 +230,8 @@ client.on('message', message => {
     .addField('🔑 tk!youtube', 'Team Kardiyak Youtube linkini gösterir. ')
     .addField('🔑 tk!twitch', 'Team Kardiyak Twitch linkini gösterir. ')
     .addField('🔑 tk!discord', 'Team Kardiyak Discord linkini gösterir. ')
+    .addField('🔑 tk!play <url>', 'Linkini girdiğiniz şarkıyı çalar. ')
+    .addField('🔑 tk!avatar', 'Kendi avatarınızı gönderir. ')
     .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
     message.channel.send(kanal);
   }
