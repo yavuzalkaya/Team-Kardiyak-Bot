@@ -147,7 +147,6 @@ client.on('message', async message => {
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
         message.channel.send(kanal);
     }
-  }
 });
 
 client.on('message', async message => {
