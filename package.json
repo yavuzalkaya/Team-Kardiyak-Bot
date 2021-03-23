@@ -1,0 +1,19 @@
+{
+  "name": "teamkardiyak",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "author": "Mockir",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "ffmpeg-static": "^4.2.8",
+    "fs": "^0.0.1-security",
+    "opusscript": "^0.0.8",
+    "path": "^0.12.7",
+    "ytdl-core": "^4.5.0"
+  }
+}
