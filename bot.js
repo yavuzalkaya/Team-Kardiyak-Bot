@@ -139,20 +139,21 @@ client.on('message', message => {
   }
 });
 
-client.on('message', message => {
+client.on('message', async message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
     const user = message.mention.users.first()
-    const kanal = new MessageEmbed()
     if (user) {
+      const kanal = new MessageEmbed()
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
-      message.channel.send(kanal);
+        message.channel.send(kanal);
     } else {
+      const kanal = new MessageEmbed()
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
-      message.channel.send(kanal);
+        message.channel.send(kanal);
     }
   }
 });
