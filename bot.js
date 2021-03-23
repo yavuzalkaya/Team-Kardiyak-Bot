@@ -4,6 +4,9 @@ const işaret = require('./işaret.json');
 const { Client, MessageEmbed } = require('discord.js');
 const hedefimiz = require('./hedef.json');
 const kbio = require('./biyografi.json');
+const moment = require('moment');
+require('moment-duration-format');
+const os = require('os');
 
 var hedef = hedefimiz.hedef
 
@@ -136,6 +139,22 @@ client.on('message', message => {
     if (!botmesajı) return message.reply('Ne duyuracağımı yazmadınız.');
     if (!kanal) return message.reply('Hangi kanalda duyuru yapacağımı yazmadınız.');
     kanal.send(args.join(" ") + "@everyone")
+  }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'istatistik') {
+    const uptime = moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]")
+    const kanal = new MessageEmbed()
+
+    .setTitle('📊 **İSTATİSTİK**')
+    .addField('🙋 Kullanıcı Sayısı:', 'client.users.cache.size ')
+    .addField('🏢 Sunucu Sayısı:', 'client.guilds.cache.size ')
+    .addField('💠 Kanal Sayısı', 'client.channels.cache.size ')
+    .addField('🙇 Bot Sahibi', '**Team Kardiyak** (Mockir 👑#2102) ')
+    .addField('⏱️ Çalışma Süresi', uptime)
+    .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+    message.channel.send(kanal);
   }
 });
 
