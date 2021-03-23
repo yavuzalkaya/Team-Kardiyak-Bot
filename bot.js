@@ -85,8 +85,8 @@ if (message.content.startsWith(prefix + 'ban')) {
           .then(() => {
            const kanal = message.guild.channel.cache.find(channels => channels.id === '823161505633534002')
            const embed = new MessageEmbe()
-           .setTitle('Kick')
-           .setDescription('Olay: `Kick`')
+           .setTitle('Ban')
+           .setDescription('Olay: `Ban`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
@@ -141,14 +141,6 @@ client.on('message', message => {
 
 client.on('message', async message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
-    const user = message.mention.users.first()
-    if (user) {
-      const kanal = new MessageEmbed()
-      .setTitle(`**${message.author.tag} AVATARINIZ**`)
-      .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
-      .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
-        message.channel.send(kanal);
-    } else {
       const kanal = new MessageEmbed()
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
