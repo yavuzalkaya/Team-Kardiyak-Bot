@@ -139,6 +139,23 @@ client.on('message', message => {
   }
 });
 
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'avatar') {
+    const kanal = new MessageEmbed()
+    const user = message.mention.users.first()
+    if (user) = {
+      .setTitle(`**${message.author.tag} AVATARINIZ**`)
+      .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
+      .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+    } else {
+      .setTitle(`**${message.author.tag} AVATARINIZ**`)
+      .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
+      .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+    }
+      message.channel.send(kanal);
+  }
+});
+
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     const args = message.content.split(' ').slice(1)
