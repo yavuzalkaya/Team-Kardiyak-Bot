@@ -143,7 +143,7 @@ client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
     const user = message.mention.users.first()
     const kanal = new MessageEmbed()
-    if (user) = {
+    if (user) {
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
