@@ -108,7 +108,7 @@ if (message.content.startsWith(prefix + 'ban')) {
 
 client.on('guildCreate', async guild => {
     const embed1 = new Discord.MessageEmbed()
-    .setTitle('Sunucunuza eklediğiniz için teşekkürler!)
+    .setTitle('Sunucunuza eklediğiniz için teşekkürler!')
     .setDescription('Sunucu Adı: `' + guild.name + '`')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     guild.owner.send(embed1)
@@ -128,7 +128,7 @@ client.on('guildCreate', async guild => {
     
 client.on('guildDelete', async guild => {
     const embed1 = new Discord.MessageEmbed()
-    .setTitle('Sunucunuzdan çıkarmanız bizi üzdü..)
+    .setTitle('Sunucunuzdan çıkarmanız bizi üzdü..')
     .setDescription('Sunucu Adı: `' + guild.name + '`')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     guild.owner.send(embed1)
