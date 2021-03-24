@@ -173,7 +173,7 @@ client.on('message', async message => {
       const connection = await message.member.voice.channel.join();
       play.play(connection, args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
       let title = play.title(args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
-title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı:' + \n + ```titlee```))
+title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı:\n'```titlee```))
     } else {
       message.reply('Bir sesli kanala katılmalısınız.')
     }
