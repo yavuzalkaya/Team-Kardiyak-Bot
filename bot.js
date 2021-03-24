@@ -250,6 +250,16 @@ client.on('message', message => {
   }
 });
 
+client.on('message', async message => {
+  if (message.content.startsWith(prefix + 'öner')) {
+      const önerimesajı = message.content.split(' ').slice(1)
+      const öner = önerimesajı.join(" ")
+      kanal = client.users.cache.find(user => user.id === '483221261502119938')
+      kanal.send(öner + ' - ' + message.author.tag)
+      message.channel.send('Öneriniz için teşekkür ederiz.')
+  }
+});
+
 
 client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'help') {
@@ -320,9 +330,9 @@ client.on('message', async message => {
       const embed = new MessageEmbed()
       .setTitle(`Oyun Arıyor: **${message.author.tag}**`)
       .setColor("RANDOM")
-      .setField("Oyun:", `${game}`)
+      .setField("Oyun:", game)
       .setField('Sesli Kanal:', `${message.member.voice.channel}`)
-      .setField("Not:", `${not}`);
+      .setField("Not:", not);
       message.channel.send(embed)
     } else {
 message.reply('Önce sesli bir kanala katılmalısınız!')
