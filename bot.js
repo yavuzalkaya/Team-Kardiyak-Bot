@@ -58,7 +58,7 @@ client.on('message', message => {
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           message.channel.send(embed
+           message.channel.send(embed);
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
