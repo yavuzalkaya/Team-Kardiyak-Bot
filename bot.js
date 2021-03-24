@@ -378,8 +378,7 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
-    .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ')
-    .addField('tk!kayıt <Üye> <Yeni İsmi>', 'Bu komut için sunucuzda <Kayıtsız> ve <Üye> rolleri olmalıdır')    
+    .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
