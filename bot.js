@@ -188,7 +188,7 @@ client.on('message', async message => {
   let role = message.guild.roles.cache.find(r => r.id === "775800216950669393")
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
   member.setNickname(args.join(" "))
-  message.member.roles.add(role)
+  member.roles.add(role)
      const kanal = new MessageEmbed()
 
     .setTitle('KAYIT')
