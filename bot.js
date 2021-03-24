@@ -201,7 +201,7 @@ client.on('message', async message => {
   
  
 
-client.on('message', async msg => {
+client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
     msg.channel.send(`<$@{msg.author.tag}>` + ' as')
   }
