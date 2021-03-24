@@ -186,7 +186,7 @@ client.on('message', async message => {
   let member = message.mentions.members.first()
   let role = message.guild.roles.cache.find(r => r.name === "Üye")
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
-  member.setNickname(args.slice(0).join(" "))
+  member.setNickname(args.slice(1).join(" "))
   message.member.roles.add(role)
      const kanal = new MessageEmbed()
 
