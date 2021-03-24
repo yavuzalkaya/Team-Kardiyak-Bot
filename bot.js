@@ -106,6 +106,47 @@ if (message.content.startsWith(prefix + 'ban')) {
   }
 });
 
+client.on('guildCreate', async guild => {
+    const embed1 = new Discord.MessageEmbed()
+    .setTitle('Sunucunuza eklediğiniz için teşekkürler!)
+    .setDescription('Sunucu Adı: `' + guild.name + '`')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    guild.owner.send(embed1)
+});
+
+client.on('guildCreate', async guild => {
+    const embed2 = new Discord.MessageEmbed()
+    .setTitle('**YENİ SUNUCU!!**')
+    .setDescription('Sunucu Adı: ' + guild.name)
+    .addField('Üye sayısı: ', guild.memberCount)
+    .addField('Sunucu Sahibi: ', guild.owner)
+    .setThumbnail(guild.iconURL())
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    const channel = client.channel.cache.find(ch => ch.id === '823161505633534002')
+    channel.send(embed2)
+});
+    
+client.on('guildDelete', async guild => {
+    const embed1 = new Discord.MessageEmbed()
+    .setTitle('Sunucunuzdan çıkarmanız bizi üzdü..)
+    .setDescription('Sunucu Adı: `' + guild.name + '`')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    guild.owner.send(embed1)
+});
+
+client.on('guildDelete', async guild => {
+    const embed2 = new Discord.MessageEmbed()
+    .setTitle('**SUNUCUDAN ÇIKARILDIM**')
+    .setDescription('Sunucu Adı: ' + guild.name)
+    .addField('Üye sayısı: ', guild.memberCount)
+    .addField('Sunucu Sahibi: ', guild.owner)
+    .setThumbnail(guild.iconURL())
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    const channel = client.channel.cache.find(ch => ch.id === '823161505633534002')
+    channel.send(embed2)
+});
+    
+
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'oylama')) {
     const botmesajı = args[1];
