@@ -52,15 +52,13 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const kanal = message.guild.channel.cache.find(channels => channels.id === '823161505633534002')
            const embed = new MessageEmbe()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           kanal.send(embed);
-           message.channel.send(`${user.tag} kişisi kicklenmiştir.`);
+           message.channel.send(embed
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -86,15 +84,13 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           const kanal = message.guild.channel.cache.find(channels => channels.id === '823161505633534002')
            const embed = new MessageEmbe()
            .setTitle('Ban')
            .setDescription('Olay: `Ban`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           kanal.send(embed);
-           message.channel.send(`${user.tag} kişisi banlanmıştır.`);
+           message.channel.send(embed);
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -148,12 +144,13 @@ client.on('message', message => {
     const kanal = new MessageEmbed()
 
     .setTitle('📊 **İSTATİSTİK**')
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('🙋 Kullanıcı Sayısı:', client.users.cache.size + ' Kullanıcı' )
     .addField('🏢 Sunucu Sayısı:', client.guilds.cache.size + ' Sunucu' )
     .addField('💠 Kanal Sayısı', client.channels.cache.size + ' Kanal' )
     .addField('🙇 Bot Sahibi', '**Team Kardiyak** (Mockir 👑#2102) ')
     .addField('⏱️ Çalışma Süresi', uptime)
-    .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
 });
@@ -163,7 +160,7 @@ client.on('message', async message => {
       const kanal = new MessageEmbed()
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
-      .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+      .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
         message.channel.send(kanal);
     }
 });
@@ -183,6 +180,26 @@ message.reply('Lütfen önce bir ses kanalına katılınız!');
   }
 });
 
+client.on('message', async message => {
+  if (message.content.startsWith(prefix + 'kayıt')) {
+  if (!message.member.hasPermission('MANAGER_NİCKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
+  let member = message.mentions.member.first()
+  let role = message.guild.roles.cache.find(r => r.name === "Üye")
+  if (!member) return message.reply("Lütfen birini etiketleyiniz.")
+  member.setNickname(args.slice(1).join(" "))
+  message.member.roles.add(role)
+     const kanal = new MessageEmbed()
+
+    .setTitle('KAYIT')
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .addField('Kayıt Edilen Kullanıcı', `${member.user.username}` )
+    .addField('Kayıt Eden Kişi', `${message.author.tag}
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+  
+ 
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
@@ -329,6 +346,7 @@ client.on('message', async message => {
     if (message.member.voice.channel) {
       const embed = new MessageEmbed()
       .setTitle(`Oyun Arıyor: **${message.author.tag}**`)
+      .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
       .setColor("RANDOM")
       .setField("Oyun:", game)
       .setField('Sesli Kanal:', `${message.member.voice.channel}`)
@@ -347,10 +365,10 @@ client.on('message', message => {
     .setTitle('Team Kardiyak')
     .setAuthor('Team Kardiyak')
     .setColor("RANDOM")
-    .setThumbnail('https://hizliresim.com/ruP6eM.png')
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('Kardiyak Kimdir?', 'Kardiyak, 12 Aralık 1995 de Muğla nın Marmaris ilçesinde doğmuştur. İlkokul ve Ortaokul yıllarında önemli Klasik Müzik Bestecilerinin eserlerine hakim olmuş ve daha sonra ergenlik yıllarında New Age (Epik Müzik) müziğe merak sarmış, sonrasında ise müzikal bilgi birikimini çeşitli şekillerde kullanmak ve farklı müzik türleriyle sentezlemek istemiştir. Rap müzik yapmaya ilk lise yılında başlamış, kendine “Salazar Records” isimli bir Ev Stüdyosu kurmuştur. Şarkılarının altyapılarından liriklerine, kapak tasarımlarından aranje ve mix mastering işlemlerine kadar birçok işi üstlenmiştir.')
     .addField('➖➖➖➖➖', 'Lise son sınıfa kadar katıldığı Hiphop etkinlikleri, Freestyle Battle (Doğaçlama Rap Yarışması) Turnuvalarındaki birincilikleri ve “Salazar Records” isimli kendi YouTube kanalına yüklediği şarkılar sayesinde kemik bir kitle oluşturmayı başarmıştır. Yine de akademik olarak kendini oldukça eksik hisseden Kardiyak, en sonunda Haliç Üniversitesi Konservatuarı Opera ve Konser Şarkıcılığı bölümü kazanmış ve bir yandan da Galatasaray ITM de Mix Mastering eğitim almaya başlamıştır. Okulda öğrendiklerini git gide daha da müziğine yansıtmayı başarmış ve her şarkıda tıpkı bir tiyatro oyuncusu gibi farklı karakterlere dönüşmek ya da birbirinden bağımsız konseptler ile dinleyiciye yalnızca bir müzikten daha fazlasını bulacakları bir deneyim yaşatmayı amaçladığı Epik Rap adını verdiği farklı bir müzik türü ortaya koymuştur.')
-    .setFooter('Bot ile ilgili sorun ve sorularınızı yetkililere bildiriniz.');
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
 });
