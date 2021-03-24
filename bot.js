@@ -167,14 +167,13 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-  if (message.content.startsWith(prefix + 'veli')) {
+  if (message.content.startsWith(prefix + 'play')) {
     if (message.member.voice.channel) {
       const args = message.content.split(' ').slice(1)
       const connection = await message.member.voice.channel.join();
       play.play(connection, args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
       let title = play.title(args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
-      let play = require('discordjs-ytdl')
-console.log(play.thumbnail('4w8Su0dRFAw'))
+title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı:' + \n + ```titlee```))
     } else {
       message.reply('Bir sesli kanala katılmalısınız.')
     }
