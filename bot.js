@@ -193,7 +193,7 @@ client.on('message', async message => {
     .setTitle('KAYIT')
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('Kayıt Edilen Kullanıcı', `${member.user.username}` )
-    .addField('Kayıt Eden Kişi', `${message.author.tag}
+    .addField('Kayıt Eden Kişi', `${message.author.tag}` )
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
