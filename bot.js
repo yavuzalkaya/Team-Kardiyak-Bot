@@ -184,8 +184,8 @@ client.on('message', async message => {
   if (message.content.startsWith(prefix + 'kayıt')) {
   if (!message.member.hasPermission('MANAGER_NİCKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
-  let member = message.mentions.members.first()
-  let role = message.guild.roles.cache.find(r => r.id === "775800216950669393")
+  let member = message.mentions.members.first();
+  let role = message.guild.roles.cache.find(r => r.id === "775800216950669393");
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
   member.setNickname(args.join(" "))
   member.roles.add(role)
