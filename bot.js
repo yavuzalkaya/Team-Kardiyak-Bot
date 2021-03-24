@@ -7,7 +7,7 @@ const kbio = require('./biyografi.json');
 const moment = require('moment');
 require('moment-duration-format');
 const os = require('os');
-const play = require('discord.js-ytdl');
+const play = require('discordjs-ytdl');
 
 var hedef = hedefimiz.hedef
 
