@@ -122,7 +122,7 @@ client.on('guildCreate', async guild => {
     .addField('Sunucu Sahibi: ', guild.owner)
     .setThumbnail(guild.iconURL())
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-    const channel = client.channel.cache.find(ch => ch.id === '823161505633534002')
+    const channel = client.channels.cache.find(ch => ch.id === '823161505633534002')
     channel.send(embed2)
 });
     
@@ -142,7 +142,7 @@ client.on('guildDelete', async guild => {
     .addField('Sunucu Sahibi: ', guild.owner)
     .setThumbnail(guild.iconURL())
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-    const channel = client.channel.cache.find(ch => ch.id === '823161505633534002')
+    const channel = client.channels.cache.find(ch => ch.id === '823161505633534002')
     channel.send(embed2)
 });
     
