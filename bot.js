@@ -148,9 +148,9 @@ client.on('message', message => {
     const kanal = new MessageEmbed()
 
     .setTitle('📊 **İSTATİSTİK**')
-    .addField('🙋 Kullanıcı Sayısı:', 'client.users.cache.size ')
-    .addField('🏢 Sunucu Sayısı:', 'client.guilds.cache.size ')
-    .addField('💠 Kanal Sayısı', 'client.channels.cache.size ')
+    .addField('🙋 Kullanıcı Sayısı:', client.users.cache.size + 'Kullanıcı' )
+    .addField('🏢 Sunucu Sayısı:', client.guilds.cache.size + 'Sunucu' )
+    .addField('💠 Kanal Sayısı', client.channels.cache.size + 'Kanal' )
     .addField('🙇 Bot Sahibi', '**Team Kardiyak** (Mockir 👑#2102) ')
     .addField('⏱️ Çalışma Süresi', uptime)
     .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
