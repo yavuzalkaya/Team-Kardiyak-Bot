@@ -236,22 +236,77 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'sosyalmedya') {
+    const kanal = new MessageEmbed()
+
+    .setTitle('Team Kardiyak Sosyal Medya Hesapları')
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .addField('Youtube', [Youtube](https://www.youtube.com/c/TeamKardiyak))
+    .addField('İnstagram', [İnstagram](https://www.instagram.com/teamkardiyak/))
+    .addField('Twitch', [Twitch](https://www.twitch.tv/teamkardiyak/))
+    .addField('Discord', [Discord](https://discord.gg/muzik))
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+
+
+client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'help') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Yardım')
+    .setTitle('Team Kardiyak Bot Yardım')
     .setDescription('Size nasıl yardımcı olabilirim?')
-    .setAuthor('Team Kardiyak')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
-    .addField('🔑 tk!Kardiyak', 'Kardiyakın biyografisini gösterir. ')
-    .addField('🔑 tk!instagram', 'Team Kardiyak Instagram linkini gösterir. ')
-    .addField('🔑 tk!youtube', 'Team Kardiyak Youtube linkini gösterir. ')
-    .addField('🔑 tk!twitch', 'Team Kardiyak Twitch linkini gösterir. ')
-    .addField('🔑 tk!discord', 'Team Kardiyak Discord linkini gösterir. ')
-    .addField('🔑 tk!play <url>', 'Linkini girdiğiniz şarkıyı çalar. ')
-    .addField('🔑 tk!avatar', 'Kendi avatarınızı gönderir. ')
-    .setFooter('Bot ile ilgili sorun ve sorularınız için yetkililere ulaşabilirsiniz..')
+	.addField('tk!bilgi', 'Kardiyak ve Team Kardiyak ile ilgili ayrıntılı bilgi verir. ')
+    .addField('tk!komutlar', 'Team Kardiyak Bot komutlarını gösterir. ')
+    .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar. ')
+	.addField('tk!istatistik', 'Botun istatistiklerini gösterir.')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'bilgi') {
+    const kanal = new MessageEmbed()
+
+    .setTitle('Team Kardiyak Bot Bilgi')
+    .setColor("RANDOM")
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+	.addField('tk!Kardiyak', 'Kardiyak ile ilgili ayrıntılı bilgi verir. ')
+    .addField('tk!sosyal medya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
+    .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar.')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'botdavet') {
+    const kanal = new MessageEmbed()
+
+    .setTitle('Team Kardiyak Bot Davet')
+    .setColor("RANDOM")
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .addField('**BOTU SUNUCUNUZA DAVET EDİN**', [Tıkla ve Botu sunucuna ekle](https//discord.com/oauth2/authorize?client_id=821659403861229568&scope=bot&permissions=2147483647))
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'komutlar') {
+    const kanal = new MessageEmbed()
+
+    .setTitle('Team Kardiyak Bot Komutları')
+    .setColor("RANDOM")
+    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
+	.addField('tk!play <url>', 'URL sini girdiğiniz şarkıyı çalar. ')
+	.addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
 });
