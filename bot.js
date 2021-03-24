@@ -111,7 +111,7 @@ if (message.content.startsWith(prefix + 'ban')) {
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'oylama')) {
-    const botmesajı = args[1]
+    const botmesajı = args[1];
     const botmesajıa = args[2]
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
     if (!botmesajı) return message.reply('Neleri oylayacağımızı yazmadınız.');
