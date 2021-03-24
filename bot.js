@@ -203,7 +203,7 @@ client.on('message', async message => {
 
 client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
-    msg.channel.send(`<@${msg.author.id}> as`)
+    msg.channel.send(`${msg.author.tag} as`)
   }
   if (msg.content.toLowerCase() === 'selam') {
     msg.channel.send('Selam dostum, nasılsın?');
@@ -224,7 +224,7 @@ client.on('message', msg => {
     msg.channel.send('tk!help yazarak bot ile ilgili ayrıntılı bilgiye erişebilirsiniz.');
   }
   if (msg.content.toLowerCase() === 'merhaba') {
-    msg.channel.send(`<@${msg.author.id}> merhaba dostum, nasılsın?`)
+    msg.channel.send(`${msg.author.tag}` + ' merhaba dostum, nasılsın?')
   }
   if (msg.content.toLowerCase() === 'sen nasılsın bot') {
     msg.channel.send('Sanat için tam gaz çalışmaya devam..');
