@@ -183,7 +183,7 @@ message.reply('Lütfen önce bir ses kanalına katılınız!');
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'kayıt')) {
   if (!message.member.hasPermission('MANAGER_NİCKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
-  const args = message.content.split(' ').slice(1)
+  const args = message.content.split(' ').slice(2)
   let member = message.mentions.members.first()
   let role = message.guild.roles.cache.find(r => r.name === "Üye")
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
