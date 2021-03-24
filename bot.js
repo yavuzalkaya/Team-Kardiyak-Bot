@@ -7,6 +7,7 @@ const kbio = require('./biyografi.json');
 const moment = require('moment');
 require('moment-duration-format');
 const os = require('os');
+const play = require('discord.js-ytdl');
 
 var hedef = hedefimiz.hedef
 
@@ -167,6 +168,21 @@ client.on('message', async message => {
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      play.play(connection, args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
+      let title = play.title(args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
+title.then(titlee => message.channel.send('VİDEO BAŞLIĞI:' + titlee)
+    } else {
+      message.reply('Bir sesli kanala katılmalısınız.')
+    }
+  }
+});
+           
+      
+
+client.on('message', async message => {
+  if (message.content.startsWith(prefix + 'ali')) {
     const args = message.content.split(' ').slice(1)
     const botmesajı = args.join(" ")
     if (!botmesajı) return message.reply('Lütfen önce bir URL belirtiniz!')
