@@ -169,6 +169,7 @@ client.on('message', async message => {
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     if (message.member.voice.channel) {
+      const args = message.content.split(' ').slice(1)
       const connection = await message.member.voice.channel.join();
       play.play(connection, args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
       let title = play.title(args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
