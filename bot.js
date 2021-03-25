@@ -172,7 +172,7 @@ client.on('message', async message => {
     const args = message.content.split(' ').slice(1)
     const botmesajı = args[0];
     const botmesajıa = args[1]
-    if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
+    if (!message.member.hasPermission('MANAGE_ROLE')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
     if (!botmesajı) return message.reply('Neleri oylayacağımızı yazmadınız.');
     message.delete(message.author)
     const embed = new MessageEmbed()
@@ -276,8 +276,8 @@ client.on('message', async message => {
   if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
   let member = message.mentions.members.first();
-  let role = message.guild.roles.cache.find(r => r.id === '775800216950669393');
-  let roles = message.guild.roles.cache.find(r => r.id === '777867930268073984');
+  let role = message.guild.roles.cache.find(r => r.id === "775800216950669393")
+  let roles = message.guild.roles.cache.find(r => r.id === "777867930268073984")
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
   member.setNickname(args.join(" "))
   member.roles.add(role)
@@ -398,7 +398,7 @@ client.on('message', message => {
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('tk!Kardiyak', 'Kardiyak ile ilgili ayrıntılı bilgi verir. ')
-    .addField('tk!sosyal medya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
+    .addField('tk!sosyalmedya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
     .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
