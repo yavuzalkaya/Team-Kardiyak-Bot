@@ -168,6 +168,33 @@ client.on('message', async message => {
   }
 });
 
+client.on('message', async message => {
+    if (message.content.startsWith(prefix + 'çekiliş')) {
+        const {MessageEmbed} = require('discord.js')
+        let time = args[0]
+        let ödülargs = message.content.split(' ').slice(2)
+        let ödül = ödülargs.join(" ")
+        if (isNaN(time)) return;
+        const embed1 = new MessageEmbed()
+        .setTitle('Çekiliş Başladı!!!')
+        .setDescription(ödül)
+        .addField('Çekiliş' + time + 'saniye sonra açıklanacaktır')
+        .setFooter()
+        const embed2 = new MessageEmbed()
+        .setDescription('Çekiliş Bitti Kazanan: <@' + message.react.member.cache.random() + '>')
+        .setTitle(ödül)
+        .addField('TEBRİKLER!!')
+        .setFooter()
+        message.channel.send(embed1).then(embed1 => {
+        embedMessage.react("🎉")
+        setTimeout(function (){
+            embed1.edit(embed2)
+        }, time * 1000);
+    })
+    }
+});
+
+
 client.on('message', message => {
   if (message.content.startsWith(prefix + 'duyuru')) {
     const kanal = message.mentions.channel.first();
