@@ -18,8 +18,17 @@ const prefix = işaret.prefix
 
 
 client.on('ready', () => {
-    client.user.setActivity('tk!help')
-    console.log(`${client.user.tag} botu kullanıma hazır`);
+    console.log(`${client.user.tag} botu kullanıma hazır`)
+    const durumlar = [
+      "tk!help",
+      "Discord sunucumuza katılmayı unutmayın: discord.gg/muzik",
+      "Instagram: @teamkardiyak",
+      `Tam ${client.guild.cache.size} sunucuda aktif olarak kullanılıyorum!!!`
+    ]
+    setInterval(function () {
+      let durum = durumlar[Math.floor(Math.random()*durumlar.length)]
+      client.user.setActivity(durum)
+    }, 10000);
 });
 
 client.on('guildMemberAdd', member => {
