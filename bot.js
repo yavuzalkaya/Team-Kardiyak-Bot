@@ -92,13 +92,13 @@ if (message.content.startsWith(prefix + 'ban')) {
           .then(() => {
            const kanal = client.channels.cache.find(ch => ch.id === '823161505633534002')
            const embed = new MessageEmbe()
-           .setTitle('Kick')
-           .setDescription('Olay: `Kick`')
+           .setTitle('Ban')
+           .setDescription('Olay: `Ban`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            kanal.send(embed)
-           message.channel.send('user + kişisi kicklenmiştir.');
+           message.channel.send('user + kişisi banlanmıştır.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
