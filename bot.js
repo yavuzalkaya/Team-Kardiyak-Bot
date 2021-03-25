@@ -432,9 +432,9 @@ client.on('message', async message => {
       .setTitle(`Oyun Arayan:  <@${message.author.id}>`)
       .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
       .setColor("RANDOM")
-      .setField("Oyun:", game)
-      .setField('Sesli Kanal:', `${message.member.voice.channel}`)
-      .setField("Not:", not)
+      .addField("Oyun:", game)
+      .addField('Sesli Kanal:', `${message.member.voice.channel}`)
+      .addField("Not:", not)
       message.channel.send(embed)
     } else {
 message.reply('Önce sesli bir kanala katılmalısınız!')
