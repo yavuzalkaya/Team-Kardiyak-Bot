@@ -23,7 +23,7 @@ client.on('ready', () => {
       "tk!help",
       "Discord sunucumuza katılmayı unutmayın: discord.gg/muzik",
       "Instagram: @teamkardiyak",
-      `Tam ${client.guild.cache.size} sunucuda aktif olarak kullanılıyorum!!!`
+      `Tam ${client.guilds.cache.size} sunucuda aktif olarak kullanılıyorum!!!`
     ]
     setInterval(function () {
       let durum = durumlar[Math.floor(Math.random()*durumlar.length)]
@@ -424,6 +424,8 @@ client.on('message', message => {
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
     .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
+    .addField('tk!oylama <birinci kişi> <ikinci kişi> ', 'Belirttiğiniz kişiler arasında oylama yapar. ')
+    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -436,6 +438,7 @@ client.on('message', async message => {
     const nott = message.content.split(' ').slice(2)
     const not = nott.join(" ")
     if (message.member.voice.channel) {
+    message.delete(message.author)
       const embed = new MessageEmbed()
       
       .setTitle(`Oyun Arayan:  <@${message.author.id}>`)
