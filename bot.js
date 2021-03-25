@@ -172,6 +172,7 @@ client.on('message', async message => {
 client.on('message', async message => {
     if (message.content.startsWith(prefix + 'çekiliş')) {
         const {MessageEmbed} = require('discord.js')
+        const args = message.content.split(' ').slice(1)
         let time = args[0]
         let ödülargs = message.content.split(' ').slice(2)
         let ödül = ödülargs.join(" ")
