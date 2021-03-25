@@ -69,8 +69,9 @@ client.on('message', message => {
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
+           .addField('Kickleyen Yetkili:', `${message.author.id}`)
            kanal.send(embed)
-           message.channel.send('user + kişisi kicklenmiştir.');
+           message.channel.send(`user` + 'kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -106,8 +107,9 @@ if (message.content.startsWith(prefix + 'ban')) {
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
+           .addField('Banlayan Yetkili:', `${message.author.id}`)
            kanal.send(embed)
-           message.channel.send('user + kişisi banlanmıştır.');
+           message.channel.send(`user` + 'kişisi banlanmıştır.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
