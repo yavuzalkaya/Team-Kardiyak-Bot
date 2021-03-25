@@ -53,13 +53,15 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
+           const kanal = client.channels.cache.find(ch => ch.id === '823161505633534002')
            const embed = new MessageEmbe()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           message.channel.send(embed);
+           kanal.send(embed)
+           message.channel.send('user + kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -78,6 +80,9 @@ client.on('message', message => {
   if (!message.guild) return;
 if (message.content.startsWith(prefix + 'ban')) {
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Bunu yapacak yetkiye sahip olduğunu düşünmüyorum..')
+    const args1 = message.content.split(' ').slice(2)
+    const neden = args1.join(" ")
+    const { MessageEmbed } = require('discord.js')
     const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
@@ -85,13 +90,15 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
+           const kanal = client.channels.cache.find(ch => ch.id === '823161505633534002')
            const embed = new MessageEmbe()
-           .setTitle('Ban')
-           .setDescription('Olay: `Ban`')
+           .setTitle('Kick')
+           .setDescription('Olay: `Kick`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           message.channel.send(embed);
+           kanal.send(embed)
+           message.channel.send('user + kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -422,7 +429,7 @@ client.on('message', async message => {
     if (message.member.voice.channel) {
       const embed = new MessageEmbed()
       
-      .setTitle('Oyun Arayan: ', `<@${message.author.id}>` )
+      .setTitle(`Oyun Arayan:  <@${message.author.id}>`)
       .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
       .setColor("RANDOM")
       .setField("Oyun:", game)
