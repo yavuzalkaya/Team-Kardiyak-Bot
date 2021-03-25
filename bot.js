@@ -149,8 +149,9 @@ client.on('guildDelete', async guild => {
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'oylama')) {
-    const botmesajı = args[1];
-    const botmesajıa = args[2]
+    const args = message.content.split(' ').slice(1)
+    const botmesajı = args[0];
+    const botmesajıa = args[1]
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
     if (!botmesajı) return message.reply('Neleri oylayacağımızı yazmadınız.');
     message.delete(message.author)
