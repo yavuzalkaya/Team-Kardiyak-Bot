@@ -421,7 +421,7 @@ client.on('message', async message => {
     const not = nott.join(" ")
     if (message.member.voice.channel) {
       const embed = new MessageEmbed()
-      .addTitle('Oyun Arayan: ', `<@${message.author.id}>` )
+      .setTitle('Oyun Arayan: ', `<@${message.author.id}>` )
       .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
       .setColor("RANDOM")
       .setField("Oyun:", game)
