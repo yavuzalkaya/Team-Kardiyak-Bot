@@ -62,7 +62,6 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const user = message.mentions.users.first()
            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
            const embed = new MessageEmbed()
            .setTitle('Kick')
@@ -70,9 +69,9 @@ client.on('message', message => {
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           .addField('Kickleyen Yetkili:', `${message.author.id}`)
+           .addField('Kickleyen Yetkili:', `<@${message.author.id}>`)
            kanal.send(embed)
-           message.channel.send(`user` + 'kişisi kicklenmiştir.');
+           message.channel.send(user + 'kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -101,7 +100,6 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           const user = message.mentions.users.first()
            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
            const embed = new MessageEmbed()
            .setTitle('Ban')
@@ -109,9 +107,9 @@ if (message.content.startsWith(prefix + 'ban')) {
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
-           .addField('Banlayan Yetkili:', `${message.author.id}`)
+           .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
            kanal.send(embed)
-           message.channel.send(`user` + 'kişisi banlanmıştır.');
+           message.channel.send(user + 'kişisi banlanmıştır.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
