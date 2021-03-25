@@ -172,7 +172,7 @@ client.on('message', async message => {
     const args = message.content.split(' ').slice(1)
     const botmesajı = args[0];
     const botmesajıa = args[1]
-    if (!message.member.hasPermission('MANAGE_ROLE')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
+    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('Sadece yöneticiler oylama açabilir.');
     if (!botmesajı) return message.reply('Neleri oylayacağımızı yazmadınız.');
     message.delete(message.author)
     const embed = new MessageEmbed()
