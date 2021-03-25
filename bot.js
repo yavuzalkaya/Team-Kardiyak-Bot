@@ -427,7 +427,7 @@ client.on('message', async message => {
       .setColor("RANDOM")
       .setField("Oyun:", game)
       .setField('Sesli Kanal:', `${message.member.voice.channel}`)
-      .setField("Not:", not);
+      .setField("Not:", not)
       message.channel.send(embed)
     } else {
 message.reply('Önce sesli bir kanala katılmalısınız!')
