@@ -63,7 +63,7 @@ client.on('message', message => {
           .kick()
           .then(() => {
            const kanal = client.channels.cache.find(ch => ch.id === '823161505633534002')
-           const embed = new MessageEmbe()
+           const embed = new MessageEmbed()
            .setTitle('Kick')
            .setDescription('Olay: `Kick`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
@@ -100,7 +100,7 @@ if (message.content.startsWith(prefix + 'ban')) {
           .ban()
           .then(() => {
            const kanal = client.channels.cache.find(ch => ch.id === '823161505633534002')
-           const embed = new MessageEmbe()
+           const embed = new MessageEmbed()
            .setTitle('Ban')
            .setDescription('Olay: `Ban`')
            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
