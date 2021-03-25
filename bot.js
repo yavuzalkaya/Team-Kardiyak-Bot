@@ -415,6 +415,7 @@ client.on('message', message => {
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'oyunara')) {
+    const args = message.content.split(' ').slice(1)
     const game = args[0]
     const nott = message.content.split(' ').slice(2)
     const not = nott.join(" ")
