@@ -219,7 +219,8 @@ client.on('message', async message => {
 
 client.on('message', message => {
   if (message.content.startsWith(prefix + 'duyuru')) {
-    const kanal = message.mentions.channel.first()
+    const channel = message.mentions.channel.first()
+    const kanal = channel[1]
     const args = message.content.split('').slice(1)
     const botmesajı = args.join(" ")
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece **yöneticiler** duyuru yapabilir.');
