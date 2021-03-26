@@ -458,9 +458,9 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('tk!ban <kişi>', 'Etiketlediğiniz kişiyi banlamanızı sağlar. ')
     .addField('tk!kick <kişi>', 'Etiketlediğiniz kişiyi kicklemenizi sağlar. ')
-    .addField('tk!oylama <seçenek1> <seçenek2>', 'Belirttiğiniz 2 seçenek arasında oylama başlatırsınız.\n(Rolleri Yönet özelliği olan her kişi veya rol kullanabilir)')
+    .addField('tk!oylama <seçenek1> <seçenek2>', 'Belirttiğiniz 2 seçenek arasında oylama başlatırsınız.\n(Rolleri Yönet özelliği olan her kişi veya rol kullanabilir.)')
     .addField('tk!sil <sayı>', 'Belirttiğiniz kadar mesajı silmenizi sağlar. ')
-    .addField('tk!çekiliş <kişi>', 'HENÜZ DÜZENLENİYOR. ')
+    .addField('tk!çekiliş <süre> <ödül>', 'HENÜZ DÜZENLENİYOR. ')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
