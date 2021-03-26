@@ -192,7 +192,8 @@ client.on('message', async message => {
 client.on('message', async message => {
     if (message.content.startsWith(prefix + 'sil')) {
         if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece **yöneticiler** mesaj silebilir.');
-        let user = message.mentions.users.first() || message.author;
+        const args = message.content.split(' ').slice(1)
+        const args = args[0];
         if (isNaN(args)) return message.reply('lütfen bir sayı giriniz.');
         if (args < 2 || args > 100) return message.reply('Lütfen 2 ile 100 arasında bir sayı giriniz.');
         message.channel.bulkDelete(Number(args))
@@ -270,8 +271,7 @@ client.on('message', message => {
 client.on('message', async message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
       const kanal = new MessageEmbed()
-      const args = message.mentions.users.first()
-      const user = args[0]
+      let user = message.mentions.users.first() || message.author;
       if (user) {
           const kanal = new MessageEmbed()
               .setTitle(`**${message.author.tag} AVATARINIZ**`)
