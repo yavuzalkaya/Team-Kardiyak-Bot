@@ -304,7 +304,7 @@ client.on('message', async message => {
       let user = message.mentions.users.first()
       if (user) {
           const kanal = new MessageEmbed()
-              .setTitle(`**${message.author.tag} AVATARINIZ**`)
+              .setTitle(`**${user.tag} AVATARINIZ**`)
               .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
           message.channel.send(kanal)
