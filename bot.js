@@ -300,8 +300,8 @@ client.on('message', message => {
 
 client.on('message', async message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
-      const user = message.mentions.members.first() || message.author
       const kanal = new MessageEmbed()
+      let user = message.mentions.users.first()
       if (user) {
           const kanal = new MessageEmbed()
               .setTitle(`**${message.author.tag} AVATARINIZ**`)
