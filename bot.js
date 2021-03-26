@@ -286,11 +286,6 @@ client.on('message', async message => {
   }
 });
 
-      .setTitle(`**${message.author.tag} AVATARINIZ**`)
-      .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
-      .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-        message.channel.send(kanal);
-
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     if (message.member.voice.channel) {
