@@ -202,9 +202,9 @@ client.on('message', async message => {
         .setTitle('Mesajlar Başarıyla Silindi!')
         .setDescription('Silinen Mesaj Sayısı: ' + args)
         message.channel.send(embed).then(mesaj => {
-            setTimeout(function () {
-                message.delete()
-            }, 5000);
+          setTimeout(function () {
+            message.delete()
+          }, 5000);
         })
     }
 });
