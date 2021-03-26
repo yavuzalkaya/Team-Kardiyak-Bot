@@ -236,6 +236,37 @@ client.on('message', async message => {
     }
 });
 
+client.on('message', async message => {
+    if (message.content.startsWith(prefix + 'sil')) {
+        let üye = message.mentions.users.first()
+        if (üye) {
+            let durum = üye.presence.status
+            .replace('online', 'Çevrimiçi')
+            .replace('idle', 'Boşta')
+            .replace('dnd', 'Rahatsız Etmeyin')
+            .replace('offline', 'Çevrimdışı')
+            const embed = new MessageEmbed()
+            .setThumbnail(üye.displayAvatarURL({dynamic: true}))
+            .setColor('RANDOM')
+            .setTitle(üye.username)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0].state}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r !== '@everyone').map(ro => ro).join(' | ')}`)
+            message.channel.send(embed)
+        } else {
+            üye = message.author
+            let durum = üye.presence.status
+            .replace('online', 'Çevrimiçi')
+            .replace('idle', 'Boşta')
+            .replace('dnd', 'Rahatsız Etmeyin')
+            .replace('offline', 'Çevrimdışı')
+            const embed = new MessageEmbed()
+            .setThumbnail(üye.displayAvatarURL({dynamic: true}))
+            .setColor('RANDOM')
+            .setTitle(üye.username)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0].state}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r !== '@everyone').map(ro => ro).join(' | ')}`)
+            message.channel.send(embed)
+        }
+    }
+});
 
 client.on('message', message => {
   if (message.content.startsWith(prefix + 'duyuru')) {
