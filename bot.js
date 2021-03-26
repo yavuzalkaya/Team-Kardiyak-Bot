@@ -237,7 +237,7 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-    if (message.content.startsWith(prefix + 'sil')) {
+    if (message.content.startsWith(prefix + 'kullanıcı')) {
         let üye = message.mentions.users.first()
         if (üye) {
             let durum = üye.presence.status
