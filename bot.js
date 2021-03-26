@@ -249,7 +249,7 @@ client.on('message', async message => {
             .setThumbnail(üye.displayAvatarURL({dynamic: true}))
             .setColor('RANDOM')
             .setTitle(üye.username)
-            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0].state}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r !== '@everyone').map(ro => ro).join(' | ')}`)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
             message.channel.send(embed)
         } else {
             üye = message.author
@@ -262,7 +262,7 @@ client.on('message', async message => {
             .setThumbnail(üye.displayAvatarURL({dynamic: true}))
             .setColor('RANDOM')
             .setTitle(üye.username)
-            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0].state}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r !== '@everyone').map(ro => ro).join(' | ')}`)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
             message.channel.send(embed)
         }
     }
