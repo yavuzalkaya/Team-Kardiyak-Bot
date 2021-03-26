@@ -193,6 +193,7 @@ client.on('message', async message => {
     if (message.content.startsWith(prefix + 'sil')) {
         if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece **yöneticiler** mesaj silebilir.');
         const args = message.content.split(' ').slice(1)
+        let time = args[0]
         if (isNaN(args)) return message.reply('lütfen bir sayı giriniz.');
         if (args < 2 || args > 100) return message.reply('Lütfen 2 ile 100 arasında bir sayı giriniz.');
         message.channel.bulkDelete(Number(args))
