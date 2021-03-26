@@ -190,7 +190,26 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
+    if (message.content.startsWith(prefix + 'sil')) {
+        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece **yöneticiler** mesaj silebilir.');
+        if (isNaN(args)) return message.reply('lütfen bir sayı giriniz.');
+        if (args < 2 || args > 100) return message.reply('Lütfen 2 ile 100 arasında bir sayı giriniz.');
+        message.channel.bulkDelete(Number(args))
+        const { MessageEmbed} = require('discord.js')
+        const embed = new MessageEmbed()
+        .setTitle('Mesajlar Başarıyla Silindi!')
+        .setDescription('Silinen Mesaj Sayısı: ' + args)
+        message.channel.send(embed).then(mesaj => {
+            setTimeout(function () {
+                message.delete()
+            }, 5000);
+        })
+    }
+});
+
+client.on('message', async message => {
     if (message.content.startsWith(prefix + 'çekiliş')) {
+        if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Sadece **yöneticiler** bir çekiliş başlatabilir.');
         const {MessageEmbed} = require('discord.js')
         const args = message.content.split(' ').slice(1)
         let time = args[0]
@@ -250,12 +269,27 @@ client.on('message', message => {
 client.on('message', async message => {
   if (message.content.toLowerCase() === prefix + 'avatar') {
       const kanal = new MessageEmbed()
+      const user = message.mentions.users.first()
+      if (user) {
+          const kanal = new MessageEmbed()
+              .setTitle(`**${message.author.tag} AVATARINIZ**`)
+              .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
+              .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+          message.channel.send(kanal)
+      } else { 
+          const kanal = new MessageEmbed()
+              .setTitle(`**${message.author.tag} AVATARINIZ**`)
+              .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
+              .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+          message.channel.send(kanal);
+      }
+  }
+});
+
       .setTitle(`**${message.author.tag} AVATARINIZ**`)
       .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
       .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
         message.channel.send(kanal);
-    }
-});
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
