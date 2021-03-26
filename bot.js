@@ -299,7 +299,7 @@ client.on('message', message => {
 });
 
 client.on('message', async message => {
-  if (message.content.toLowerCase() === prefix + 'avatar') {
+  if (message.content.startsWith() === prefix + 'avatar') {
       const kanal = new MessageEmbed()
       let user = message.mentions.users.first()
       if (user) {
