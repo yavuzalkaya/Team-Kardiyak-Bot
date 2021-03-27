@@ -307,7 +307,7 @@ client.on('message', async message => {
       if (user) {
           const kanal = new MessageEmbed()
               .setTitle(`**${user.tag} AVATARINIZ**`)
-              .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
+              .setImage(user.display({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
           message.channel.send(kanal);
       } else { 
@@ -332,16 +332,6 @@ title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı: ' + titlee))
       message.reply('Bir sesli kanala katılmalısınız.')
     }
   }
-});
-
-client.on('message', async message => {
-    if (message.content.toLowerCase(prefix + 'ayrıl')) {
-        if (!message.member.voice.channel) return message.channel.send('Bir sesli kanalda değilsiniz.');
-        if (!message.guild.me.voice.channel) return message.channel.send('Bot bir sesli kanalda değil.');
-        if (message.member.voice.channel.id !== message.guild.me.voice.channel.di) return message.channel.send('Bot ile aynı sesli kanalda değilsiniz.')
-        message.member.voice.channel.leave()
-        message.channel.send('Sesli kanaldan çıktım. Tekrar şarkı dinlemek istersen tk!play yazman yeterli..')
-    }
 });
 
 client.on('message', async message => {
