@@ -335,6 +335,16 @@ title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı: ' + titlee))
 });
 
 client.on('message', async message => {
+    if (message.content.startsWith(prefix + 'ayrıl')) {
+      if (!message.member.voice.channel) return message.channel.send('Bir sesli kanalda değilsiniz.');
+      if (!message.guild.me.voice.channel) return message.channel.send('Bot bir sesli kanalda değil.')
+      if (message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send('Bot ile aynı sesli kanalda değilsiniz.')
+      message.member.voice.channel.leave()
+      message.channel.send('Sesli kanaldan çıktım. Tekrar şarkı dinlemek istersen tk!play yazman yeterli..')
+    }
+});
+
+client.on('message', async message => {
   if (message.content.startsWith(prefix + 'kayıt')) {
   if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
