@@ -321,16 +321,6 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-  if (message.content.toLowerCase(prefix + 'ayrıl')) {
-    if (!message.member.voice.channel) return message.channel.send('Bir sesli kanalda değilsiniz.');
-    if (!message.guild.me.voice.channel) return message.channel.send('Bot bir sesli kanalda değil.')
-    if (message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send('Bot ile aynı sesli kanalda değilsiniz.')
-    message.member.voice.channel.leave()
-    message.channel.send('Sesli kanaldan çıktım. Tekrar şarkı dinlemek istersen tk!play yazman yeterli..')
-  }
-});
-
-client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     if (message.member.voice.channel) {
       const args = message.content.split(' ').slice(1)
