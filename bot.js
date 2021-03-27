@@ -517,11 +517,12 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
+    .addField('tk!ayrıl', 'Bot bir sesli kanalda iken ayrılmasını sağlar') 
     .addField('tk!kullanıcı <kişi>', 'Etiketlediğiniz kişinin bilgilerini aktarır. ')
     .addField('tk!moderasyon', 'Moderasyon komutlarını içerir. ')
     .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
     .addField('tk!oylama <birinci kişi> <ikinci kişi> ', 'Belirttiğiniz kişiler arasında oylama yapar. ')
-    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ')
+    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ') 
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
