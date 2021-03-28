@@ -61,7 +61,6 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-            const user = message.mentions.users.first()
             const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
             const embed = new MessageEmbed()
             .setTitle('Kick')
@@ -71,7 +70,7 @@ client.on('message', message => {
             .addField('Neden:', neden)
             .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
             kanal.send(embed);
-            message.channel.send(user + 'kişisi kicklenmiştir.');
+            message.channel.send(member + 'kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -92,7 +91,6 @@ if (message.content.startsWith(prefix + 'ban')) {
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Bunu yapacak yetkiye sahip olduğunu düşünmüyorum..')
     const args1 = message.content.split(' ').slice(2)
     const neden = args1.join(" ")
-    const { MessageEmbed } = require('discord.js')
     const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
@@ -100,7 +98,6 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           const user = message.mentions.users.first();
            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
            const embed = new MessageEmbed()
            .setTitle('Ban')
@@ -109,8 +106,8 @@ if (message.content.startsWith(prefix + 'ban')) {
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
-           kanal.send(embed)
-           message.channel.send(user + 'kişisi banlanmıştır.');
+           kanal.send(embed);
+           message.channel.send(member + 'kişisi banlanmıştır.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
