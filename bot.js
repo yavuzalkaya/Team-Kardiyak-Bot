@@ -62,7 +62,7 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const user = message.mentions.users.first();
+           const user = message.mentions.users.first()
            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
            const embed = new MessageEmbed()
            .setTitle('Kick')
