@@ -308,7 +308,7 @@ client.on('message', async message => {
               .setTitle(`**${user.tag} AVATARINIZ**`)
               .setImage(user.display({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-          message.channel.send(kanal);
+          message.channel.send(kanal)
       } else { 
           const kanal = new MessageEmbed()
               .setTitle(`**${message.author.tag} AVATARINIZ**`)
