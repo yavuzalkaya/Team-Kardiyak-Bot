@@ -301,7 +301,7 @@ client.on('message', message => {
 client.on('message', async message => {
   if (message.content.startsWith() === prefix + 'avatar') {
       const kanal = new MessageEmbed()
-      let args = message.mentions.users.first();
+      let args = message.mentions.users.first()
       const user = args[0]
       if (user) {
           const kanal = new MessageEmbed()
