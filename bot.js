@@ -71,7 +71,7 @@ client.on('message', message => {
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            .addField('Kickleyen Yetkili:', `<@${message.author.id}>`)
-           kanal.send(embed)
+           kanal.send(embed);
            message.channel.send(user + 'kişisi kicklenmiştir.');
           })
           .catch(err => {
