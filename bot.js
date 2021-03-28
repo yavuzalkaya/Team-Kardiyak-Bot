@@ -54,7 +54,6 @@ client.on('message', message => {
     if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Bunu yapacak yetkiye sahip olduğunu düşünmüyorum..')
     const args1 = message.content.split(' ').slice(2)
     const neden = args1.join(" ")
-    const { MessageEmbed } = require('discord.js')
     const user = message.mentions.users.first();
     if (user) {
       const member = message.guild.member(user);
@@ -62,17 +61,17 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-           const user = message.mentions.users.first()
-           const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
-           const embed = new MessageEmbed()
-           .setTitle('Kick')
-           .setDescription('Olay: `Kick`')
-           .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
-           .addField('Kişi:', member)
-           .addField('Neden:', neden)
-           .addField('Kickleyen Yetkili:', `<@${message.author.id}>`)
-           kanal.send(embed);
-           message.channel.send(user + 'kişisi kicklenmiştir.');
+            const user = message.mentions.users.first()
+            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
+            const embed = new MessageEmbed()
+            .setTitle('Kick')
+            .setDescription('Olay: `Kick`')
+            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+            .addField('Kişi:', member)
+            .addField('Neden:', neden)
+            .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
+            kanal.send(embed);
+            message.channel.send(user + 'kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
