@@ -70,7 +70,7 @@ client.on('message', message => {
             .addField('Neden:', neden)
             .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
             kanal.send(embed);
-            message.channel.send(<@member> + ' kişisi kicklenmiştir.');
+            message.channel.send(`<@member>` + ' kişisi kicklenmiştir.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
@@ -107,7 +107,7 @@ if (message.content.startsWith(prefix + 'ban')) {
            .addField('Neden:', neden)
            .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
            kanal.send(embed);
-           message.channel.send(<@member> + 'kişisi banlanmıştır.');
+           message.channel.send(`<@member>` + ' kişisi banlanmıştır.');
           })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
