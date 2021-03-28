@@ -301,18 +301,18 @@ client.on('message', message => {
 client.on('message', async message => {
   if (message.content.startsWith() === prefix + 'avatar') {
       const kanal = new MessageEmbed()
-      let args = message.mentions.users.first() || message.author
+      let args = message.mentions.users.first();
       const user = args[0]
       if (user) {
           const kanal = new MessageEmbed()
               .setTitle(`**${user.tag} AVATARINIZ**`)
-              .setImage(user.display({ dynamic: true, size: 4096 }))
+              .setImage(user.display({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
           message.channel.send(kanal);
       } else { 
           const kanal = new MessageEmbed()
               .setTitle(`**${message.author.tag} AVATARINIZ**`)
-              .setImage(message.author.displayAvatarURL({ dynamic: true, size: 4096 }))
+              .setImage(message.author.displayAvatarURL({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
           message.channel.send(kanal);
       }
