@@ -181,7 +181,7 @@ client.on('message', async message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
     .addField(botmesajı, "🟢")
     .addField(botmesajıa, "🔴")
-    .setFooter('Bot ile ilgili sorun ve sorularınızı yetkililere bildiriniz.');
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send({ embed: embed }).then( embedMessage => {
       embedMessage.react("🟢")
       embedMessage.react("🔴");
@@ -200,6 +200,7 @@ client.on('message', async message => {
         const embed = new MessageEmbed()
         .setTitle('Mesajlar Başarıyla Silindi!')
         .setDescription('Silinen Mesaj Sayısı: ' + args)
+        .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
         message.channel.send(embed).then(mesaj => {
           setTimeout(function () {
             mesaj.delete()
@@ -249,7 +250,8 @@ client.on('message', async message => {
             .setThumbnail(üye.displayAvatarURL({dynamic: true}))
             .setColor('RANDOM')
             .setTitle(üye.username)
-            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nSunucudaki Adı: ${üye.server.username}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
+            .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
             message.channel.send(embed)
         } else {
             üye = message.author
@@ -262,7 +264,8 @@ client.on('message', async message => {
             .setThumbnail(üye.displayAvatarURL({dynamic: true}))
             .setColor('RANDOM')
             .setTitle(üye.username)
-            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nSunucudaki Adı: ${üye.server.username}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
+            .setDescription(üye.tag + ` kişinin bilgileri:\n\nKullanıcı Adı: ${üye.username}\n\nEtiketi: ${üye.discriminator}\n\nID: ${üye.id}\n\nKullanıcı Bot Mu? ${üye.bot ? 'Evet' : 'Hayır'}\n\nKullanıcı Aktivitesi: ${üye.presence.activities[0] ? üye.presence.activities[0].state : 'YOK'}\n\nÜye Durumu: ${durum}\n\nHesabın Oluşturulma Tarihi: ${moment(üye.createdAt).format('DD')}/${moment(üye.createdAt).format('MM')}/${moment(üye.createdAt).format('YY HH:mm:ss')}\n\nRoller: ${message.guild.members.cache.get(üye.id).roles.cache.filter(r => r.name !== "@everyone").map(r => r).join('  |  ')}`)
+            .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
             message.channel.send(embed)
         }
     }
@@ -544,6 +547,7 @@ client.on('message', async message => {
       .addField("Oyun:", game)
       .addField('Sesli Kanal:', `${message.member.voice.channel}`)
       .addField("Not:", not)
+      .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
       message.channel.send(embed)
     } else {
 message.reply('Önce sesli bir kanala katılmalısınız!')
