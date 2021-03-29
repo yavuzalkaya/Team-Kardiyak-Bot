@@ -21,8 +21,7 @@ client.on('ready', () => {
     console.log(`${client.user.tag} botu kullanıma hazır`)
     const durumlar = [
       "tk!help",
-      "Discord sunucumuza katılmayı unutmayın: discord.gg/muzik",
-      "Instagram: @teamkardiyak",
+      "Güncellemeleri ve yenilikleri önceden öğrenmek ve kullanmak için Beta Discord sunucumuza gelebilirsiniz.",
       `Tam ${client.guilds.cache.size} sunucuda aktif olarak kullanılıyorum!!!`
     ]
     setInterval(function () {
@@ -65,7 +64,7 @@ client.on('message', message => {
             const embed = new MessageEmbed()
             .setTitle('Kick')
             .setDescription('Olay: `Kick`')
-            .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+            .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
             .addField('Kişi:', member)
             .addField('Neden:', neden)
             .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
@@ -102,7 +101,7 @@ if (message.content.startsWith(prefix + 'ban')) {
            const embed = new MessageEmbed()
            .setTitle('Ban')
            .setDescription('Olay: `Ban`')
-           .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+           .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
@@ -174,7 +173,7 @@ client.on('message', async message => {
     const embed = new MessageEmbed()
     .setTitle('OYLAMA')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField(botmesajı, "🟢")
     .addField(botmesajıa, "🔴")
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
@@ -288,11 +287,12 @@ client.on('message', message => {
     const kanal = new MessageEmbed()
 
     .setTitle('📊 **İSTATİSTİK**')
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('🙋 Kullanıcı Sayısı:', client.users.cache.size + ' Kullanıcı' )
     .addField('🏢 Sunucu Sayısı:', client.guilds.cache.size + ' Sunucu' )
     .addField('💠 Kanal Sayısı', client.channels.cache.size + ' Kanal' )
-    .addField('🙇 Bot Sahibi', '**Team Kardiyak** (Mockir 👑#2102) ')
+    .addField('🙇 Bot Sahibi', 'Mockir 👑#2102 ')
+    .addField('🖌 Tasarımcımız', 'Albus.png #1290')
     .addField('⏱️ Çalışma Süresi', uptime)
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
@@ -304,8 +304,8 @@ client.on('message', async message => {
       let user = message.mentions.users.first();
       if (user) {
           const kanal = new MessageEmbed()
-              .setTitle(`**${user.tag} AVATARINIZ**`)
-              .setImage(user.display({ dynamic: true, size:4096 }))
+              .setTitle(`**${user.tag} ADLI KULLANICININ AVATARI**`)
+              .setImage(user.displayAvatarURL({ dynamic: true, size:4096 }))
               .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
           message.channel.send(kanal)
       } else { 
@@ -356,7 +356,7 @@ client.on('message', async message => {
      const kanal = new MessageEmbed()
 
     .setTitle('KAYIT')
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('Kayıt Edilen Kullanıcı', `${member.user.username}` )
     .addField('Kayıt Eden Yetkili', `<@${message.author.id}>` )
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
@@ -418,11 +418,11 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'sosyalmedya') {
+  if (message.content.toLowerCase() === prefix + 'tksosyalmedya') {
     const kanal = new MessageEmbed()
 
     .setTitle('Team Kardiyak Sosyal Medya Hesapları')
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('Youtube', '[Youtube](https://www.youtube.com/c/TeamKardiyak)')
     .addField('İnstagram', '[İnstagram](https://www.instagram.com/teamkardiyak/)')
     .addField('Twitch', '[Twitch](https://www.twitch.tv/teamkardiyak/)')
@@ -447,12 +447,13 @@ client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'help') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Bot Yardım')
+    .setTitle('Mitzi Bot Yardım')
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('**ÖNEMLİ BİLGİLENDİRME**', '**-** Yakın zamanda Botun ismi değişecektir. (Aynı zamanda prefix ve panellerde değişiklik olacaktır.)\n**-** Bota gelecek güncellemeleri önceden görmek ve kullanmak isteyenler için bir beta sunucusu kurulacak..')
-    .addField('tk!bilgi', 'Kardiyak ve Team Kardiyak ile ilgili ayrıntılı bilgi verir. ')
+    .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
+    .addField('tk!tkbilgi', 'Kardiyak ve Team Kardiyak ile ilgili ayrıntılı bilgi verir. ')
     .addField('tk!komutlar', 'Team Kardiyak Bot komutlarını gösterir. ')
     .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar. ')
     .addField('tk!istatistik', 'Botun istatistiklerini gösterir.')
@@ -463,15 +464,32 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'bilgi') {
+  if (message.content.toLowerCase() === prefix + 'tkbilgi') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Bot Bilgi')
+    .setTitle('Team Kardiyak Bilgi')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!Kardiyak', 'Kardiyak ile ilgili ayrıntılı bilgi verir. ')
     .addField('tk!sosyalmedya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
     .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar.')
+    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+    message.channel.send(kanal);
+  }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'bilgi') {
+    const kanal = new MessageEmbed()
+
+    .setTitle('Mitzi Bot Bilgi')
+    .setColor("RANDOM")
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
+    .addField('Mitzi', 'Şarkı Dinleme, Moderasyon, Kayıt, Oylama gibi komutları bulunan bir bot ')
+    .addField('Yapımcı', 'Mockir 👑#2102 (Mockir Medya Kurucusu)')
+    .addField('Tasarımcımız', 'Albus.png #1290')
+    .addField('Destekleyiciler ', '[MockirMedya(Beta Deneme Sunucusu)](https://discord.gg/h8stvaDQnP)\n[Team Kardiyak](https://discord.gg/muzik)')
+    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -483,7 +501,7 @@ client.on('message', message => {
 
     .setTitle('Team Kardiyak Bot Davet')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('**BOTU SUNUCUNUZA DAVET EDİN**', '[Tıkla ve Botu sunucuna ekle](https://discord.com/oauth2/authorize?client_id=821659403861229568&scope=bot&permissions=2147483647)')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
@@ -494,9 +512,9 @@ client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'moderasyon') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Bot Moderasyon Komutları')
+    .setTitle('Mitzi Bot Moderasyon Komutları')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!ban <kişi>', 'Etiketlediğiniz kişiyi banlamanızı sağlar. ')
     .addField('tk!kick <kişi>', 'Etiketlediğiniz kişiyi kicklemenizi sağlar. ')
     .addField('tk!oylama <seçenek1> <seçenek2>', 'Belirttiğiniz 2 seçenek arasında oylama başlatırsınız.\n(Rolleri Yönet özelliği olan her kişi veya rol kullanabilir.)')
@@ -511,9 +529,9 @@ client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'komutlar') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Bot Komutları')
+    .setTitle('Mitzi Bot Komutları')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
     .addField('tk!ayrıl', 'Bot bir sesli kanalda iken sesli kanaldan ayrılmasını sağlar.') 
@@ -538,7 +556,7 @@ client.on('message', async message => {
       const embed = new MessageEmbed()
       
       .setTitle(`Oyun Arayan:  <@${message.author.id}>`)
-      .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+      .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
       .setColor("RANDOM")
       .addField("Oyun:", game)
       .addField('Sesli Kanal:', `${message.member.voice.channel}`)
@@ -558,7 +576,7 @@ client.on('message', message => {
     .setTitle('Team Kardiyak')
     .setAuthor('Team Kardiyak')
     .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
+    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('Kardiyak Kimdir?', 'Kardiyak, 12 Aralık 1995 de Muğla nın Marmaris ilçesinde doğmuştur. İlkokul ve Ortaokul yıllarında önemli Klasik Müzik Bestecilerinin eserlerine hakim olmuş ve daha sonra ergenlik yıllarında New Age (Epik Müzik) müziğe merak sarmış, sonrasında ise müzikal bilgi birikimini çeşitli şekillerde kullanmak ve farklı müzik türleriyle sentezlemek istemiştir. Rap müzik yapmaya ilk lise yılında başlamış, kendine “Salazar Records” isimli bir Ev Stüdyosu kurmuştur. Şarkılarının altyapılarından liriklerine, kapak tasarımlarından aranje ve mix mastering işlemlerine kadar birçok işi üstlenmiştir.')
     .addField('➖➖➖➖➖', 'Lise son sınıfa kadar katıldığı Hiphop etkinlikleri, Freestyle Battle (Doğaçlama Rap Yarışması) Turnuvalarındaki birincilikleri ve “Salazar Records” isimli kendi YouTube kanalına yüklediği şarkılar sayesinde kemik bir kitle oluşturmayı başarmıştır. Yine de akademik olarak kendini oldukça eksik hisseden Kardiyak, en sonunda Haliç Üniversitesi Konservatuarı Opera ve Konser Şarkıcılığı bölümü kazanmış ve bir yandan da Galatasaray ITM de Mix Mastering eğitim almaya başlamıştır. Okulda öğrendiklerini git gide daha da müziğine yansıtmayı başarmış ve her şarkıda tıpkı bir tiyatro oyuncusu gibi farklı karakterlere dönüşmek ya da birbirinden bağımsız konseptler ile dinleyiciye yalnızca bir müzikten daha fazlasını bulacakları bir deneyim yaşatmayı amaçladığı Epik Rap adını verdiği farklı bir müzik türü ortaya koymuştur.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
