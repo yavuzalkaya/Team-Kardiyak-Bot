@@ -197,6 +197,7 @@ client.on('message', async message => {
         .setTitle('Mesajlar Başarıyla Silindi!')
         .setDescription('Silinen Mesaj Sayısı: ' + args)
         .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+        message.delete()
         message.channel.send(embed).then(mesaj => {
           setTimeout(function () {
             mesaj.delete()
@@ -450,7 +451,7 @@ client.on('message', message => {
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/782333538951102505/821787142614679572/TeamKardiyak.jpg')
-    .addField('**ÖNEMLİ BİLGİLENDİRME**', 'Yakın zamanda Botun ismi değişecektir. (**-** Aynı zamanda prefix ve panellerde değişiklik olacaktır.)\n**-** Bota gelecek güncellemeleri önceden görmek ve kullanmak isteyenler için bir beta sunucusu kurulacak..')
+    .addField('**ÖNEMLİ BİLGİLENDİRME**', '**-** Yakın zamanda Botun ismi değişecektir. (Aynı zamanda prefix ve panellerde değişiklik olacaktır.)\n**-** Bota gelecek güncellemeleri önceden görmek ve kullanmak isteyenler için bir beta sunucusu kurulacak..')
     .addField('tk!bilgi', 'Kardiyak ve Team Kardiyak ile ilgili ayrıntılı bilgi verir. ')
     .addField('tk!komutlar', 'Team Kardiyak Bot komutlarını gösterir. ')
     .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar. ')
