@@ -472,7 +472,7 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!Kardiyak', 'Kardiyak ile ilgili ayrıntılı bilgi verir. ')
     .addField('tk!sosyalmedya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
-    .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar.')
+    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
