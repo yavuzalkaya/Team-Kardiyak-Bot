@@ -555,7 +555,7 @@ client.on('message', async message => {
     message.delete(message.author)
       const embed = new MessageEmbed()
       
-      .setTitle(`Oyun Arayan:  <@${message.author.id}>`)
+      .setDescription(`Oyun Arayan:  <@${message.author.id}>`)
       .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
       .setColor("RANDOM")
       .addField("Oyun:", game)
