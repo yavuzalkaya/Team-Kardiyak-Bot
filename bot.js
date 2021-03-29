@@ -193,11 +193,11 @@ client.on('message', async message => {
         if (args < 2 || args > 100) return message.reply('Lütfen 2 ile 100 arasında bir sayı giriniz.');
         message.channel.bulkDelete(Number(args))
         const { MessageEmbed} = require('discord.js')
+        message.delete(message.author)
         const embed = new MessageEmbed()
         .setTitle('Mesajlar Başarıyla Silindi!')
         .setDescription('Silinen Mesaj Sayısı: ' + args)
         .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-        message.delete()
         message.channel.send(embed).then(mesaj => {
           setTimeout(function () {
             mesaj.delete()
