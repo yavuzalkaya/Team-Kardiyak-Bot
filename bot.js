@@ -412,6 +412,9 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'bot adamsın') {
     msg.channel.send('Yapımcım gibi..');
   }
+  if (msg.content.toLowerCase() === prefix + 'beta') {
+    msg.channel.send('https://discord.gg/GZv84fm2ad');
+  }
   if (msg.content.toLowerCase() === 'selamun aleyküm') {
     msg.channel.send('Ve aleyküm selam');
   }
@@ -442,6 +445,7 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('**YENİ GÜNCELLEME**', '**-** tk!covid ve tk!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
     .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
+    .addField('tk!beta', 'Botun Beta deneme sunucusunun linkini gönderir.')
     .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
     .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar. ')
     .addField('tk!istatistik', 'Botun istatistiklerini gösterir.')
