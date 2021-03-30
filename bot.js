@@ -373,18 +373,6 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'selam') {
     msg.channel.send('Selam dostum, nasılsın?');
   }
-  if (msg.content.toLowerCase() === prefix + 'youtube') {
-    msg.channel.send('https://www.youtube.com/c/TeamKardiyak');
-  }
-  if (msg.content.toLowerCase() === prefix + 'instagram') {
-    msg.channel.send('https://www.instagram.com/teamkardiyak/');
-  }
-  if (msg.content.toLowerCase() === prefix + 'twitch') {
-    msg.channel.send('https://www.twitch.tv/teamkardiyak/');
-  }
-  if (msg.content.toLowerCase() === prefix + 'discord') {
-    msg.channel.send('https://discord.gg/muzik');
-  }
   if (msg.content.toLowerCase() === prefix) {
     msg.channel.send('tk!help yazarak bot ile ilgili ayrıntılı bilgiye erişebilirsiniz.');
   }
@@ -392,16 +380,16 @@ client.on('message', msg => {
     msg.channel.send(`<@${msg.author.id}>` + ' merhaba dostum, nasılsın?')
   }
   if (msg.content.toLowerCase() === 'sen nasılsın bot') {
-    msg.channel.send('Sanat için tam gaz çalışmaya devam..');
+    msg.channel.send('Tam gaz çalışmaya devam..');
   }
   if (msg.content.toLowerCase() === 'iyiyim sen nasılsın bot') {
-    msg.channel.send('Sanat için tam gaz çalışmaya devam..');
+    msg.channel.send('Tam gaz çalışmaya devam..');
   }
   if (msg.content.toLowerCase() === 'kötüyüm sen nasılsın bot') {
-    msg.channel.send('Sanat için tam gaz çalışmaya devam..');
+    msg.channel.send('Tam gaz çalışmaya devam..');
   }
   if (msg.content.toLowerCase() === 'nasılsın bot') {
-    msg.channel.send('Sanat için tam gaz çalışmaya devam..');
+    msg.channel.send('Tam gaz çalışmaya devam..');
   }
   if (msg.content.toLowerCase() === 'adamsın bot') {
     msg.channel.send('Yapımcım gibi..');
@@ -417,20 +405,6 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'tksosyalmedya') {
-    const kanal = new MessageEmbed()
-
-    .setTitle('Team Kardiyak Sosyal Medya Hesapları')
-    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('Youtube', '[Youtube](https://www.youtube.com/c/TeamKardiyak)')
-    .addField('İnstagram', '[İnstagram](https://www.instagram.com/teamkardiyak/)')
-    .addField('Twitch', '[Twitch](https://www.twitch.tv/teamkardiyak/)')
-    .addField('Discord', '[Discord](https://discord.gg/muzik)')
-    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-    message.channel.send(kanal);
-  }
-});
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'öner')) {
@@ -453,9 +427,8 @@ client.on('message', message => {
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('**ÖNEMLİ BİLGİLENDİRME**', '**-** Yakın zamanda Botun ismi değişecektir. (Aynı zamanda prefix ve panellerde değişiklik olacaktır.)\n**-** Bota gelecek güncellemeleri önceden görmek ve kullanmak isteyenler için bir beta sunucusu kurulacak..')
     .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
-    .addField('tk!tkbilgi', 'Kardiyak ve Team Kardiyak ile ilgili ayrıntılı bilgi verir. ')
-    .addField('tk!komutlar', 'Team Kardiyak Bot komutlarını gösterir. ')
-    .addField('tk!botdavet', 'Team Kardiyak Botu sunucunuza davet etmenizi sağlar. ')
+    .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
+    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar. ')
     .addField('tk!istatistik', 'Botun istatistiklerini gösterir.')
     .addField('tk!öneri <fikir>', 'Bota sizce neler eklemeliyiz? Fikirlerinizi bizimle paylaşmalısınız.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
@@ -463,20 +436,6 @@ client.on('message', message => {
   }
 });
 
-client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'tkbilgi') {
-    const kanal = new MessageEmbed()
-
-    .setTitle('Team Kardiyak Bilgi')
-    .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('tk!Kardiyak', 'Kardiyak ile ilgili ayrıntılı bilgi verir. ')
-    .addField('tk!sosyalmedya', 'Team Kardiyak Sosyal medya hesaplarını gösterir. ')
-    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
-    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-    message.channel.send(kanal);
-  }
-});
 
 client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'bilgi') {
@@ -488,7 +447,7 @@ client.on('message', message => {
     .addField('Mitzi', 'Şarkı Dinleme, Moderasyon, Kayıt, Oylama gibi komutları bulunan bir bot ')
     .addField('Yapımcı', 'Mockir 👑#2102 (Mockir Medya Kurucusu)')
     .addField('Tasarımcımız', 'Albus.png #1290')
-    .addField('Destekleyiciler ', '[MockirMedya(Beta Deneme Sunucusu)](https://discord.gg/h8stvaDQnP)\n[Team Kardiyak](https://discord.gg/muzik)')
+    .addField('Destekleyiciler ', '[MockirMedya(Beta Deneme Sunucusu)](https://discord.gg/h8stvaDQnP)')
     .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
@@ -569,20 +528,6 @@ message.reply('Önce sesli bir kanala katılmalısınız!')
   }
 });
 
-client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'kardiyak') {
-    const kanal = new MessageEmbed()
-
-    .setTitle('Team Kardiyak')
-    .setAuthor('Team Kardiyak')
-    .setColor("RANDOM")
-    .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('Kardiyak Kimdir?', 'Kardiyak, 12 Aralık 1995 de Muğla nın Marmaris ilçesinde doğmuştur. İlkokul ve Ortaokul yıllarında önemli Klasik Müzik Bestecilerinin eserlerine hakim olmuş ve daha sonra ergenlik yıllarında New Age (Epik Müzik) müziğe merak sarmış, sonrasında ise müzikal bilgi birikimini çeşitli şekillerde kullanmak ve farklı müzik türleriyle sentezlemek istemiştir. Rap müzik yapmaya ilk lise yılında başlamış, kendine “Salazar Records” isimli bir Ev Stüdyosu kurmuştur. Şarkılarının altyapılarından liriklerine, kapak tasarımlarından aranje ve mix mastering işlemlerine kadar birçok işi üstlenmiştir.')
-    .addField('➖➖➖➖➖', 'Lise son sınıfa kadar katıldığı Hiphop etkinlikleri, Freestyle Battle (Doğaçlama Rap Yarışması) Turnuvalarındaki birincilikleri ve “Salazar Records” isimli kendi YouTube kanalına yüklediği şarkılar sayesinde kemik bir kitle oluşturmayı başarmıştır. Yine de akademik olarak kendini oldukça eksik hisseden Kardiyak, en sonunda Haliç Üniversitesi Konservatuarı Opera ve Konser Şarkıcılığı bölümü kazanmış ve bir yandan da Galatasaray ITM de Mix Mastering eğitim almaya başlamıştır. Okulda öğrendiklerini git gide daha da müziğine yansıtmayı başarmış ve her şarkıda tıpkı bir tiyatro oyuncusu gibi farklı karakterlere dönüşmek ya da birbirinden bağımsız konseptler ile dinleyiciye yalnızca bir müzikten daha fazlasını bulacakları bir deneyim yaşatmayı amaçladığı Epik Rap adını verdiği farklı bir müzik türü ortaya koymuştur.')
-    .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-    message.channel.send(kanal);
-  }
-});
 
 
 client.login('ODIxNjU5NDAzODYxMjI5NTY4.YFG78w.KN7HMkeF37S1F8owW3iFvKX1rDs');
