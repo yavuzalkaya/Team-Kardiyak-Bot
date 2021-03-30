@@ -390,6 +390,9 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'merhaba') {
     msg.channel.send(`<@${msg.author.id}>` + ' merhaba dostum, nasılsın?')
   }
+  if (msg.content.toLowerCase() === 'Mitzi') {
+    msg.channel.send('Merhaba ben Mitzi 👋')
+  }
   if (msg.content.toLowerCase() === 'sen nasılsın bot') {
     msg.channel.send('Tam gaz çalışmaya devam..');
   }
