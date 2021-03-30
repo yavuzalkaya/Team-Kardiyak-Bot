@@ -31,20 +31,31 @@ client.on('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
+  try {
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🔒・yeni-gelenler-için');
   girişçıkış.send(`${member}, aramıza hoşgeldin dostum. Ses teyit kanallarından birine girip 'Kayıt Sorumlusu' rolünü etiketleyerek bir yetkilinin gelmesini beklemelisin.`);
   member.send(`Team Kardiyak Sunucumuza Hoşgeldin\n\nLütfen sunucumuzun kurallarını dikkatlice okuyun. Kayıt olduktan sonra ise Etkinlik programımıza bi göz atmanızı öneriririm, bir çok etkinliğimizden haberdar olabilirsiniz.\nTeam Kardiyak Discord sunumuzda iyi eğlenceler dileriz. İyi Günler`);
+} catch(e) {
+    console.log(e)
+}
 });
 
 client.on('guildMemberAdd', member => {
+  try {
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} seninle birlikte **${member.guild.memberCount}** üye olduk. Hedefimiz **${hedef}** üye. Arkadaşlarınızı davet etmeyi unutmayın`);
-
+} catch(e) {
+    console.log(e)
+}
 });
 
 client.on('guildMemberRemove', member => {
+  try {
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} sunucudan ayrıldı. 😔 Üye sayımız **${member.guild.memberCount}**. Hedefimiz **${hedef}** üye.`);
+} catch(e) {
+    console.log(e)
+}
 });
 
 client.on('message', message => {
