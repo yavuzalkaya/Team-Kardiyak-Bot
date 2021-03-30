@@ -8,6 +8,7 @@ const moment = require('moment');
 require('moment-duration-format');
 const os = require('os');
 const play = require('discordjs-ytdl');
+const fetch = require('node-fetch');
 
 var hedef = hedefimiz.hedef
 
@@ -390,7 +391,7 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'merhaba') {
     msg.channel.send(`<@${msg.author.id}>` + ' merhaba dostum, nasılsın?')
   }
-  if (msg.content.toLowerCase() === 'mitzi') {
+  if (msg.content.toLowerCase() === 'Mitzi') {
     msg.channel.send('Merhaba ben Mitzi 👋')
   }
   if (msg.content.toLowerCase() === 'sen nasılsın bot') {
@@ -439,7 +440,7 @@ client.on('message', message => {
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('**ÖNEMLİ BİLGİLENDİRME**', '**-** Yakın zamanda Botun ismi değişecektir. (Aynı zamanda prefix ve panellerde değişiklik olacaktır.)\n**-** Bota gelecek güncellemeleri önceden görmek ve kullanmak isteyenler için bir beta sunucusu kurulacak..')
+    .addField('**YENİ GÜNCELLEME**', '**-** tk!covid ve tk!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
     .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
     .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
     .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar. ')
@@ -512,7 +513,9 @@ client.on('message', message => {
     .addField('tk!moderasyon', 'Moderasyon komutlarını içerir. ')
     .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
     .addField('tk!oylama <birinci kişi> <ikinci kişi> ', 'Belirttiğiniz kişiler arasında oylama yapar. ')
-    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ') 
+    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ')
+    .addField('tk!covid', 'Tüm dünyanın korona değerlerini gösterir.')
+    .addField('tk!covidtr', 'Türkiyenin korona değerlerini gösterir.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -540,6 +543,55 @@ client.on('message', async message => {
 message.reply('Önce sesli bir kanala katılmalısınız!')
     }
   }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'covidtr') {
+      try{
+        const respo = fetch("https://coronavirus-19-api.herokuapp.com/countries/Turkey").then(ok => ok.json())
+        .then(json => {
+          const embed = new MessageEmbed()
+        .setDescription('**Türkiye İçin Sonuçlar:**')
+        .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
+        .setColor("RANDOM")
+        .addField('😷 **Toplam Vaka:**', `${json.cases}`)
+        .addField('🏥 **Günlük Hasta:**', `${json.todayCases}`)
+        .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
+        .addField('☠️ **Günlük Ölü:**', `${json.todayDeaths}`)
+        .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
+        .addField('😷 **Aktif Vaka:**', `${json.active}`)
+        .addField('🆘 **Ağır Hasta:**', `${json.critical}`)
+        .addField('🧪 **Toplam Test:**', `${json.totalTests}`)
+        .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+        message.channel.send(embed);
+      });
+      } catch (err) {
+         console.log(err);
+      }
+    
+    }
+});
+
+client.on('message', message => {
+  if (message.content.toLowerCase() === prefix + 'covid') {
+      try{
+        const respo = fetch("https://coronavirus-19-api.herokuapp.com/all").then(ok => ok.json())
+        .then(json => {
+          const embed = new MessageEmbed()
+        .setDescription('**Bütün Dünya İçin Sonuçlar:**')
+        .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
+        .setColor("RANDOM")
+        .addField('😷 **Toplam Vaka:**', `${json.cases}`)
+        .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
+        .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
+        .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+        message.channel.send(embed);
+      });
+      } catch (err) {
+         console.log(err);
+      }
+    
+    }
 });
 
 
