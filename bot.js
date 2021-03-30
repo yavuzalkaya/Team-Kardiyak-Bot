@@ -499,7 +499,7 @@ client.on('message', message => {
   if (message.content.toLowerCase() === prefix + 'botdavet') {
     const kanal = new MessageEmbed()
 
-    .setTitle('Team Kardiyak Bot Davet')
+    .setTitle('Mitzi Bot Davet')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('**BOTU SUNUCUNUZA DAVET EDİN**', '[Tıkla ve Botu sunucuna ekle](https://discord.com/oauth2/authorize?client_id=821659403861229568&scope=bot&permissions=2147483647)')
