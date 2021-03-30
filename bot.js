@@ -413,7 +413,7 @@ client.on('message', msg => {
     msg.channel.send('Ve aleyküm selam');
   }
   if (msg.content.toLowerCase() === prefix + 'test') {
-    msg.channel.send('Team Kardiyak Bot Çalışıyor!\n\n`tk!help` yazarak komutlara erişebilirsiniz.\n\nTeam Kardiyak iyi günler diler.');
+    msg.channel.send('Mitzi Bot Çalışıyor!\n\n`tk!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
   }
 });
 
