@@ -31,15 +31,7 @@ client.on('ready', () => {
     }, 10000);
 });
 
-client.on('guildMemberAdd', member => {
-  try {
-  const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🔒・yeni-gelenler-için');
-  girişçıkış.send(`${member}, aramıza hoşgeldin dostum. Ses teyit kanallarından birine girip 'Kayıt Sorumlusu' rolünü etiketleyerek bir yetkilinin gelmesini beklemelisin.`);
-  member.send(`Team Kardiyak Sunucumuza Hoşgeldin\n\nLütfen sunucumuzun kurallarını dikkatlice okuyun. Kayıt olduktan sonra ise Etkinlik programımıza bi göz atmanızı öneriririm, bir çok etkinliğimizden haberdar olabilirsiniz.\nTeam Kardiyak Discord sunumuzda iyi eğlenceler dileriz. İyi Günler`);
-} catch(e) {
-    console.log(e)
-}
-});
+
 
 client.on('guildMemberAdd', member => {
   try {
@@ -355,7 +347,7 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-  if (message.content.startsWith(prefix + 'kayıt')) {
+  if (message.content.startsWith(prefix + 'kyt')) {
   if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
   let member = message.mentions.members.first();
