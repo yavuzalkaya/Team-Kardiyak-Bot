@@ -443,7 +443,7 @@ client.on('message', message => {
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('**YENİ GÜNCELLEME**', '**-** tk!covid ve tk!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
+    .addField('**YENİ GÜNCELLEME**', '**-** tk!insta <kullanıcı adı> komutu eklenmiştir. Bu sayede kullanıcı adını yazdığınız hesabın profil bilgilerine erişebilirsiniz.')
     .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
     .addField('tk!beta', 'Botun Beta deneme sunucusunun linkini gönderir.')
     .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
@@ -511,6 +511,7 @@ client.on('message', message => {
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
+    .addFiedl('tk!insta <kullanıcı adı>', 'Kullanıcı adını girdiğiniz instagram hesabının profil bilgilerini aktarır.')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
     .addField('tk!ayrıl', 'Bot bir sesli kanalda iken sesli kanaldan ayrılmasını sağlar.') 
     .addField('tk!kullanıcı <kişi>', 'Etiketlediğiniz kişinin bilgilerini aktarır. ')
@@ -597,6 +598,31 @@ client.on('message', message => {
     
     }
 });
+
+client.on('message', message => {
+  if (message.content.startsWith(prefix + 'insta')) {
+      try{
+        const args = message.content.split(' ').slice(1)
+        const respo = fetch(`https://videfikri.com/api/igstalk/?username=${args}`).then(res => res.json())
+        .then(json => {
+          const embed = new MessageEmbed()
+          .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
+          .setThumbnail(`${json.result.profile_hd}`)
+          .addField('Adı:', `${json.result.full_name}`)
+          .addField('Kullanıcı Adı:', `${json.result.username}`)
+          .addField('Biografi:', `${json.result.bio}`)
+          .addField('Takipçi:', `${json.result.followers}`)
+          .addField('Takip Edilen:', `${json.result.following}`)
+          .addField('Gönderi Sayısı:', `${json.result.post_count}`)
+          message.channel.send(embed);
+        });
+      } catch (err) {
+         message.channel.send(`${message.author.tag} lütfen doğru bir kullanıcı adı girdiğinizden emin olun.`);
+      }
+    
+    }
+});
+
 
 
 
