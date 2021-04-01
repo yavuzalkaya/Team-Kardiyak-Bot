@@ -602,7 +602,7 @@ client.on('message', message => {
           .setThumbnail(`${json.result.profile_hd}`)
           .addField('Adı:', `${json.result.full_name}`)
           .addField('Kullanıcı Adı:', `${json.result.username}`)
-          .addField('Biografi:', `${json.result.bio}`)
+          .addField('Biografi:', `$({json.result.bio:'YOK'})`)
           .addField('Takipçi:', `${json.result.followers}`)
           .addField('Takip Edilen:', `${json.result.following}`)
           .addField('Gönderi Sayısı:', `${json.result.post_count}`)
