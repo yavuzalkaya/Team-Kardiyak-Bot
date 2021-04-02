@@ -601,7 +601,6 @@ client.on('message', message => {
         .then(json => {
           const embed = new MessageEmbed()
           .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
-          .setThumbnail(`${json.result.profile_hd}`)
           .addField('Adı:', `${json.result.full_name}`)
           .addField('Kullanıcı Adı:', `${json.result.username}`)
           .addField('Biografi:', `$({json.result.bio})`)
