@@ -35,6 +35,7 @@ client.on('ready', () => {
 
 client.on('guildMemberAdd', member => {
   try {
+  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} seninle birlikte **${member.guild.memberCount}** üye olduk. Hedefimiz **${hedef}** üye. Arkadaşlarınızı davet etmeyi unutmayın`);
 } catch(e) {
@@ -44,6 +45,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
   try {
+  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} sunucudan ayrıldı. 😔 Üye sayımız **${member.guild.memberCount}**. Hedefimiz **${hedef}** üye.`);
 } catch(e) {
