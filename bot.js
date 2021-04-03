@@ -563,29 +563,6 @@ client.on('message', async message => {
   }
 });
 
-client.on('message', message => {
-    if (message.content.startsWith(prefix + 'insta')) {
-        try{
-          const args = message.content.split(' ').slice(1)
-          const respo = fetch(`https://videfikri.com/api/igstalk/?username=${args}`).then(res => res.json())
-          .then(json => {
-            const embed = new MessageEmbed()
-            .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
-            .setImage(`${json.result.profile_hd}`)
-            .addField('Adı:', `${json.result.full_name}`)
-            .addField('Kullanıcı Adı:', `${json.result.username}`)
-            .addField('Biografi:', `${json.result.bio}`)
-            .addField('Takipçi:', `${json.result.followers}`)
-            .addField('Takip Edilen:', `${json.result.following}`)
-            .addField('Gönderi Sayısı:', `${json.result.post_count}`)
-            message.channel.send(embed);
-          });
-        } catch (err) {
-           console.log(err);
-        }
-      
-      }
-  });
   
   client.on('message', message => {
     if (message.content.toLowerCase() === prefix + 'covidtr') {
