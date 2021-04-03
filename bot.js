@@ -563,4 +563,77 @@ client.on('message', async message => {
   }
 });
 
+client.on('message', message => {
+    if (message.content.startsWith(prefix + 'insta')) {
+        try{
+          const args = message.content.split(' ').slice(1)
+          const respo = fetch(`https://videfikri.com/api/igstalk/?username=${args}`).then(res => res.json())
+          .then(json => {
+            const embed = new MessageEmbed()
+            .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
+            .setImage(`${json.result.profile_hd}`)
+            .addField('Adı:', `${json.result.full_name}`)
+            .addField('Kullanıcı Adı:', `${json.result.username}`)
+            .addField('Biografi:', `${json.result.bio}`)
+            .addField('Takipçi:', `${json.result.followers}`)
+            .addField('Takip Edilen:', `${json.result.following}`)
+            .addField('Gönderi Sayısı:', `${json.result.post_count}`)
+            message.channel.send(embed);
+          });
+        } catch (err) {
+           console.log(err);
+        }
+      
+      }
+  });
+  
+  client.on('message', message => {
+    if (message.content.toLowerCase() === prefix + 'covidtr') {
+        try{
+          const respo = fetch("https://coronavirus-19-api.herokuapp.com/countries/Turkey").then(ok => ok.json())
+          .then(json => {
+            const embed = new MessageEmbed()
+          .setDescription('**Türkiye İçin Sonuçlar:**')
+          .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
+          .setColor("RANDOM")
+          .addField('😷 **Toplam Vaka:**', `${json.cases}`)
+          .addField('🏥 **Günlük Hasta:**', `${json.todayCases}`)
+          .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
+          .addField('☠️ **Günlük Ölü:**', `${json.todayDeaths}`)
+          .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
+          .addField('😷 **Aktif Vaka:**', `${json.active}`)
+          .addField('🆘 **Ağır Hasta:**', `${json.critical}`)
+          .addField('🧪 **Toplam Test:**', `${json.totalTests}`)
+          .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+          message.channel.send(embed);
+        });
+        } catch (err) {
+           console.log(err);
+        }
+      
+      }
+  });
+  
+  client.on('message', message => {
+    if (message.content.toLowerCase() === prefix + 'covid') {
+        try{
+          const respo = fetch("https://coronavirus-19-api.herokuapp.com/all").then(ok => ok.json())
+          .then(json => {
+            const embed = new MessageEmbed()
+          .setDescription('**Bütün Dünya İçin Sonuçlar:**')
+          .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
+          .setColor("RANDOM")
+          .addField('😷 **Toplam Vaka:**', `${json.cases}`)
+          .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
+          .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
+          .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
+          message.channel.send(embed);
+        });
+        } catch (err) {
+           console.log(err);
+        }
+      
+      }
+  });
+
 client.login('ODIxNjU5NDAzODYxMjI5NTY4.YFG78w.KN7HMkeF37S1F8owW3iFvKX1rDs');
