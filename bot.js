@@ -9,6 +9,7 @@ require('moment-duration-format');
 const os = require('os');
 const play = require('discordjs-ytdl');
 const fetch = require('node-fetch');
+const player = require('discordjs-ytdl-advanced')
 
 var hedef = hedefimiz.hedef
 
@@ -326,17 +327,29 @@ client.on('message', async message => {
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
-    if (message.member.voice.channel) {
-      const args = message.content.split(' ').slice(1)
-      const connection = await message.member.voice.channel.join();
-      play.play(connection, args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
-      let title = play.title(args.join(" "), 'AIzaSyAX6CyqRolKWVFmaMb3a7tbXXFdgggBiTo')
-title.then(titlee => message.channel.send('Şuan Dinlenen Şarkı: ' + titlee))
-    } else {
-      message.reply('Bir sesli kanala katılmalısınız.')
+    const args = message.content.split(' ').slice(1)
+    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz');
+    if (message.member.voice.channel){
+      try {
+      const connection = await message.member.voice.channel.join()
+      const şarkı = await player(args.join(" "))
+      şarkı.play(connection)
+      const embed = new MessageEmbed()
+      .setTitle(şarkı.title)
+      .setDescription(`**[${şarkı.title}](${şarkı.url})**`)
+      .setColor('RANDOM')
+      .setImage(şarkı.thumbnail)
+      .addField('\nSüre:', `${şarkı.time}`)
+      message.channel.send(embed);
+     } catch(err) {
+      message.channel.send('Şarkı bulunamadı.')
+    }
+  } else {
+      message.channel.send('Lütfen bir sesli kanala giriniz.')
     }
   }
 });
+
 
 client.on('message', async message => {
     if (message.content.startsWith(prefix + 'ayrıl')) {
