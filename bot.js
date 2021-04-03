@@ -9,7 +9,7 @@ require('moment-duration-format');
 const os = require('os');
 const play = require('discordjs-ytdl');
 const fetch = require('node-fetch');
-const player = require('discordjs-ytdl-advanced');
+const player = require('discordjs-ytdl-advanced')
 
 var hedef = hedefimiz.hedef
 
@@ -32,11 +32,18 @@ client.on('ready', () => {
     }, 10000);
 });
 
-
+client.on('guildMemberAdd', member => {
+  try {
+  const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🔒・yeni-gelenler-için');
+  girişçıkış.send(`${member}, aramıza hoşgeldin dostum. Ses teyit kanallarından birine girip 'Kayıt Sorumlusu' rolünü etiketleyerek bir yetkilinin gelmesini beklemelisin.`);
+  member.send(`Team Kardiyak Sunucumuza Hoşgeldin\n\nLütfen sunucumuzun kurallarını dikkatlice okuyun. Kayıt olduktan sonra ise Etkinlik programımıza bi göz atmanızı öneriririm, bir çok etkinliğimizden haberdar olabilirsiniz.\nTeam Kardiyak Discord sunumuzda iyi eğlenceler dileriz. İyi Günler`);
+} catch(e) {
+    console.log(e)
+}
+});
 
 client.on('guildMemberAdd', member => {
   try {
-  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} seninle birlikte **${member.guild.memberCount}** üye olduk. Hedefimiz **${hedef}** üye. Arkadaşlarınızı davet etmeyi unutmayın`);
 } catch(e) {
@@ -46,7 +53,6 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
   try {
-  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} sunucudan ayrıldı. 😔 Üye sayımız **${member.guild.memberCount}**. Hedefimiz **${hedef}** üye.`);
 } catch(e) {
@@ -325,31 +331,6 @@ client.on('message', async message => {
   }
 });
 
-client.on('message', async message => {
-  if (message.content.startsWith(prefix + 'play')) {
-    const args = message.content.split(' ').slice(1)
-    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz');
-    if (message.member.voice.channel){
-      try {
-      const connection = await message.member.voice.channel.join()
-      const şarkı = await player(args.join(" "))
-      şarkı.play(connection)
-      const embed = new MessageEmbed()
-      .setTitle(şarkı.title)
-      .setDescription(`**[${şarkı.title}](${şarkı.url})**`)
-      .setColor('RANDOM')
-      .setImage(şarkı.thumbnail)
-      .addField('\nSüre:', `${şarkı.time}`)
-      message.channel.send(embed);
-     } catch(err) {
-      message.channel.send('Şarkı bulunamadı.')
-    }
-  } else {
-      message.channel.send('Lütfen bir sesli kanala giriniz.')
-    }
-  }
-});
-
 
 client.on('message', async message => {
     if (message.content.startsWith(prefix + 'ayrıl')) {
@@ -362,7 +343,7 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-  if (message.content.startsWith(prefix + 'kyt')) {
+  if (message.content.startsWith(prefix + 'kayıt')) {
   if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
   let member = message.mentions.members.first();
@@ -419,11 +400,11 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'bot adamsın') {
     msg.channel.send('Yapımcım gibi..');
   }
-  if (msg.content.toLowerCase() === prefix + 'beta') {
-    msg.channel.send('https://discord.gg/GZv84fm2ad');
-  }
   if (msg.content.toLowerCase() === 'selamun aleyküm') {
     msg.channel.send('Ve aleyküm selam');
+  }
+  if (msg.content.toLowerCase() === prefix + 'beta') {
+    msg.channel.send('https://discord.gg/GZv84fm2ad');
   }
   if (msg.content.toLowerCase() === prefix + 'test') {
     msg.channel.send('Mitzi Bot Çalışıyor!\n\n`tk!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
@@ -450,7 +431,7 @@ client.on('message', message => {
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('**YENİ GÜNCELLEME**', '**-** tk!insta <kullanıcı adı> komutu eklenmiştir. Bu sayede kullanıcı adını yazdığınız hesabın profil bilgilerine erişebilirsiniz.')
+    .addField('**YENİ GÜNCELLEME**', '**-** tk!covid ve tk!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
     .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
     .addField('tk!beta', 'Botun Beta deneme sunucusunun linkini gönderir.')
     .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
@@ -518,7 +499,6 @@ client.on('message', message => {
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
     .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
-    .addFiedl('tk!insta <kullanıcı adı>', 'Kullanıcı adını girdiğiniz instagram hesabının profil bilgilerini aktarır.')
     .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
     .addField('tk!ayrıl', 'Bot bir sesli kanalda iken sesli kanaldan ayrılmasını sağlar.') 
     .addField('tk!kullanıcı <kişi>', 'Etiketlediğiniz kişinin bilgilerini aktarır. ')
@@ -557,79 +537,28 @@ message.reply('Önce sesli bir kanala katılmalısınız!')
   }
 });
 
-client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'covidtr') {
-      try{
-        const respo = fetch("https://coronavirus-19-api.herokuapp.com/countries/Turkey").then(ok => ok.json())
-        .then(json => {
-          const embed = new MessageEmbed()
-        .setDescription('**Türkiye İçin Sonuçlar:**')
-        .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-        .setColor("RANDOM")
-        .addField('😷 **Toplam Vaka:**', `${json.cases}`)
-        .addField('🏥 **Günlük Hasta:**', `${json.todayCases}`)
-        .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
-        .addField('☠️ **Günlük Ölü:**', `${json.todayDeaths}`)
-        .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
-        .addField('😷 **Aktif Vaka:**', `${json.active}`)
-        .addField('🆘 **Ağır Hasta:**', `${json.critical}`)
-        .addField('🧪 **Toplam Test:**', `${json.totalTests}`)
-        .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-        message.channel.send(embed);
-      });
-      } catch (err) {
-         console.log(err);
-      }
-    
+
+client.on('message', async message => {
+  if (message.content.startsWith(prefix + 'play')) {
+    const args = message.content.split(' ').slice(1)
+    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz');
+    if (message.member.voice.channel){
+      try {
+      const connection = await message.member.voice.channel.join()
+      const şarkı = await player(args.join(" "))
+      şarkı.play(connection)
+      const embed = new MessageEmbed()
+      .setTitle(şarkı.title)
+      .setDescription(`**[${şarkı.title}](${şarkı.url})**`)
+      .setColor('RANDOM')
+      .setImage(şarkı.thumbnail)
+      .addField('\nSüre:', `${şarkı.time}`)
+      message.channel.send(embed);
+     } catch(err) {
+      message.channel.send('Şarkı bulunamadı.')
     }
-});
-
-client.on('message', message => {
-  if (message.content.toLowerCase() === prefix + 'covid') {
-      try{
-        const respo = fetch("https://coronavirus-19-api.herokuapp.com/all").then(ok => ok.json())
-        .then(json => {
-          const embed = new MessageEmbed()
-        .setDescription('**Bütün Dünya İçin Sonuçlar:**')
-        .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-        .setColor("RANDOM")
-        .addField('😷 **Toplam Vaka:**', `${json.cases}`)
-        .addField('⚰️ **Toplam Ölü:**', `${json.deaths}`)
-        .addField('💊 **Toplam İyileşen:**', `${json.recovered}`)
-        .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
-        message.channel.send(embed);
-      });
-      } catch (err) {
-         console.log(err);
-      }
-    
+  } else {
+      message.channel.send('Lütfen bir sesli kanala giriniz.')
     }
+  }
 });
-
-client.on('message', message => {
-  if (message.content.startsWith(prefix + 'insta')) {
-      try{
-        const args = message.content.split(' ').slice(1)
-        const respo = fetch(`https://videfikri.com/api/igstalk/?username=${args}`).then(res => res.json())
-        .then(json => {
-          const embed = new MessageEmbed()
-          .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
-          .addField('Adı:', `${json.result.full_name}`)
-          .addField('Kullanıcı Adı:', `${json.result.username}`)
-          .addField('Biografi:', `$({json.result.bio})`)
-          .addField('Takipçi:', `${json.result.followers}`)
-          .addField('Takip Edilen:', `${json.result.following}`)
-          .addField('Gönderi Sayısı:', `${json.result.post_count}`)
-          message.channel.send(embed);
-        });
-      } catch (err) {
-         message.channel.send(`${message.author.tag} lütfen doğru bir kullanıcı adı girdiğinizden emin olun.`);
-      }
-    
-    }
-});
-
-
-
-
-client.login('ODIxNjU5NDAzODYxMjI5NTY4.YFG78w.KN7HMkeF37S1F8owW3iFvKX1rDs');
