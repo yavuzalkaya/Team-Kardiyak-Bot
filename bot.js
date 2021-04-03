@@ -32,18 +32,10 @@ client.on('ready', () => {
     }, 10000);
 });
 
-client.on('guildMemberAdd', member => {
-  try {
-  const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🔒・yeni-gelenler-için');
-  girişçıkış.send(`${member}, aramıza hoşgeldin dostum. Ses teyit kanallarından birine girip 'Kayıt Sorumlusu' rolünü etiketleyerek bir yetkilinin gelmesini beklemelisin.`);
-  member.send(`Team Kardiyak Sunucumuza Hoşgeldin\n\nLütfen sunucumuzun kurallarını dikkatlice okuyun. Kayıt olduktan sonra ise Etkinlik programımıza bi göz atmanızı öneriririm, bir çok etkinliğimizden haberdar olabilirsiniz.\nTeam Kardiyak Discord sunumuzda iyi eğlenceler dileriz. İyi Günler`);
-} catch(e) {
-    console.log(e)
-}
-});
 
 client.on('guildMemberAdd', member => {
   try {
+  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} seninle birlikte **${member.guild.memberCount}** üye olduk. Hedefimiz **${hedef}** üye. Arkadaşlarınızı davet etmeyi unutmayın`);
 } catch(e) {
@@ -53,6 +45,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
   try {
+  const hedef = 3000
   const girişçıkış = member.guild.channels.cache.find(channel => channel.name === '🎯・hedef');
   girişçıkış.send(`${member} sunucudan ayrıldı. 😔 Üye sayımız **${member.guild.memberCount}**. Hedefimiz **${hedef}** üye.`);
 } catch(e) {
@@ -541,7 +534,7 @@ message.reply('Önce sesli bir kanala katılmalısınız!')
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     const args = message.content.split(' ').slice(1)
-    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz');
+    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz')
     if (message.member.voice.channel){
       try {
       const connection = await message.member.voice.channel.join()
@@ -551,8 +544,8 @@ client.on('message', async message => {
       .setTitle(şarkı.title)
       .setDescription(`**[${şarkı.title}](${şarkı.url})**`)
       .setColor('RANDOM')
-      .setImage(şarkı.thumbnail)
-      .addField('\nSüre:', `${şarkı.time}`)
+      .setImage(`${şarkı.thumbnail}\n`)
+      .addField('Süre:', `${şarkı.time}`)
       message.channel.send(embed);
      } catch(err) {
       message.channel.send('Şarkı bulunamadı.')
