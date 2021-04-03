@@ -9,7 +9,7 @@ require('moment-duration-format');
 const os = require('os');
 const play = require('discordjs-ytdl');
 const fetch = require('node-fetch');
-const player = require('discordjs-ytdl-advanced')
+const player = require('discordjs-ytdl-advanced');
 
 var hedef = hedefimiz.hedef
 
