@@ -541,7 +541,7 @@ message.reply('Önce sesli bir kanala katılmalısınız!')
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'play')) {
     const args = message.content.split(' ').slice(1)
-    if (!args) return message.channel.send('Lütfen bir şarkı ismi giriniz');
+    if (!args[0]) return message.channel.send('Lütfen bir şarkı ismi giriniz');
     if (message.member.voice.channel){
       try {
       const connection = await message.member.voice.channel.join()
