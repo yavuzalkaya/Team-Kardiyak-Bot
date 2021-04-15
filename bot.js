@@ -648,7 +648,7 @@ client.on('message', message => {
             message.channel.send(embed);
           });
         } catch (err) {
-           message.channel.send('Lütfen kullanıcı adını doğru yazdığınızdan ve kullanıcının bilgilerinin tam olduğundan emin olun. Bunun dışında bir sorun olduğunu düşünüyorsanız beta sunucumuza gelerek sorunu bize bildirin (tk!beta).');
+           message.channel.send('Lütfen kullanıcı adını doğru yazdığınızdan ve kullanıcının bilgilerinin tam olduğundan emin olun. Bunun dışında bir sorun olduğunu düşünüyorsanız beta sunucumuza gelerek sorunu bize bildirin (tk!beta).')
         }
       
       }
