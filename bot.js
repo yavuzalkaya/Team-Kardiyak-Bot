@@ -75,12 +75,11 @@ client.on('message', message => {
             .addField('Kişi:', user)
             .addField('Neden:', neden)
             .addField('Kickleyen Yetkili:', `<@${message.author.id}>` )
-            kanal.send(embed)
+            kanal.send(embed);
             message.channel.send(member + ' kişisi kicklenmiştir.');
-          }})
+          })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
-            console.error(err);
           });
       } else {
         message.channel.send("Sunucuda bu kişiyi göremiyorum.");
@@ -115,10 +114,9 @@ if (message.content.startsWith(prefix + 'ban')) {
            .addField('Banlayan Yetkili: ', `<@${message.author.id}>`)
            kanal.send(embed)
            message.channel.send(member + ' kişisi banlanmıştır.');
-          }})
+          })
           .catch(err => {
             message.channel.send('Bunu yapamam.');
-            console.error(err);
           });
       } else {
         message.channel.send("Sunucuda bu kişiyi göremiyorum.");
