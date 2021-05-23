@@ -66,7 +66,7 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-            try {
+            try => {
             const kanal = client.channels.cache.find(ch => ch.id === '776538943445401601')
             const embed = new MessageEmbed()
             .setTitle('Kick')
@@ -104,7 +104,7 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           try {
+           try => {
            const kanal = client.channels.cache.find(ch => ch.id === '776538943445401601')
            const embed = new MessageEmbed()
            .setTitle('Ban')
