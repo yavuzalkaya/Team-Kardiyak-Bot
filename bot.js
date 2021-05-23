@@ -66,7 +66,8 @@ client.on('message', message => {
         member
           .kick()
           .then(() => {
-            const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
+            try {
+            const kanal = client.channels.cache.find(ch => ch.id === '776538943445401601')
             const embed = new MessageEmbed()
             .setTitle('Kick')
             .setDescription('Olay: `Kick`')
@@ -74,9 +75,9 @@ client.on('message', message => {
             .addField('Kişi:', member)
             .addField('Neden:', neden)
             .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
-            kanal.send(embed);
+            kanal.send(embed)
             message.channel.send(member + ' kişisi kicklenmiştir.');
-          })
+          }})
           .catch(err => {
             message.channel.send('Bunu yapamam.');
             console.error(err);
@@ -103,7 +104,8 @@ if (message.content.startsWith(prefix + 'ban')) {
         member
           .ban()
           .then(() => {
-           const kanal = client.channels.cache.find(ch => ch.id === '824594007266557964')
+           try {
+           const kanal = client.channels.cache.find(ch => ch.id === '776538943445401601')
            const embed = new MessageEmbed()
            .setTitle('Ban')
            .setDescription('Olay: `Ban`')
@@ -111,9 +113,9 @@ if (message.content.startsWith(prefix + 'ban')) {
            .addField('Kişi:', member)
            .addField('Neden:', neden)
            .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
-           kanal.send(embed);
+           kanal.send(embed)
            message.channel.send(member + ' kişisi banlanmıştır.');
-          })
+          }})
           .catch(err => {
             message.channel.send('Bunu yapamam.');
             console.error(err);
