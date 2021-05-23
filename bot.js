@@ -632,28 +632,4 @@ client.on('message', async message => {
       }
   });
 
-client.on('message', message => {
-    if (message.content.startsWith(prefix + 'insta')) {
-        try{
-          const args = message.content.split(' ').slice(1)
-          const respo = fetch(`https://videfikri.com/api/igstalk/?username=${args}`).then(res => res.json())
-          .then(json => {
-            const embed = new MessageEmbed()
-            .setTitle('**ARADAĞINIZ İNSTAGRAM HESABININ BİLGİLERİ**')
-            .setImage(`${json.result.profile_hd}`)
-            .addField('Adı:', `${json.result.full_name}`)
-            .addField('Kullanıcı Adı:', `${json.result.username}`)
-            .addField('Biografi:', `${json.result.bio}`)
-            .addField('Takipçi:', `${json.result.followers}`)
-            .addField('Takip Edilen:', `${json.result.following}`)
-            .addField('Gönderi Sayısı:', `${json.result.post_count}`)
-            message.channel.send(embed);
-          });
-        } catch (err) {
-           message.channel.send('Lütfen kullanıcı adını doğru yazdığınızdan ve kullanıcının bilgilerinin tam olduğundan emin olun. Bunun dışında bir sorun olduğunu düşünüyorsanız beta sunucumuza gelerek sorunu bize bildirin (tk!beta).')
-        }
-      
-      }
-  });
-
 client.login('ODIxNjU5NDAzODYxMjI5NTY4.YFG78w.KN7HMkeF37S1F8owW3iFvKX1rDs');
