@@ -72,9 +72,9 @@ client.on('message', message => {
             .setTitle('Kick')
             .setDescription('Olay: `Kick`')
             .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-            .addField('Kişi:', member)
+            .addField('Kişi:', user)
             .addField('Neden:', neden)
-            .addField('Kickleyen Yetkili: ', `<@${message.author.id}>`)
+            .addField('Kickleyen Yetkili:', `<@${message.author.id}>` )
             kanal.send(embed)
             message.channel.send(member + ' kişisi kicklenmiştir.');
           }})
@@ -110,9 +110,9 @@ if (message.content.startsWith(prefix + 'ban')) {
            .setTitle('Ban')
            .setDescription('Olay: `Ban`')
            .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-           .addField('Kişi:', member)
+           .addField('Kişi:', user)
            .addField('Neden:', neden)
-           .addField('Banlayan Yetkili:', `<@${message.author.id}>`)
+           .addField('Banlayan Yetkili: ', `<@${message.author.id}>`)
            kanal.send(embed)
            message.channel.send(member + ' kişisi banlanmıştır.');
           }})
