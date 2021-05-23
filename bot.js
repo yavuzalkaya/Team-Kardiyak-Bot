@@ -546,7 +546,7 @@ client.on('message', async message => {
       .addField('Süre:', `${şarkı.time}`)
       message.channel.send(embed);
      } catch(err) {
-      message.channel.send('Şarkı bulunamadı.')
+      console.log(err);
     }
   } else {
       message.channel.send('Lütfen bir sesli kanala giriniz.')
