@@ -400,15 +400,11 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'test') {
     msg.channel.send('Mitzi Bot Çalışıyor!\n\n`tk!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
   }
-});
-
-client.on('message', msg => {
   if (msg.content.toLowerCase() === 'selam bot') {
   if (msg.author.id ==! '483221261502119938' )) return message.channel.send('Benimle sadece Mockir bu şekilde konuşabilir.');
       msg.channel.send(' Selam Mockir nasılsın?')
   }
 });
-
 
 client.on('message', async message => {
   if (message.content.startsWith(prefix + 'öner')) {
