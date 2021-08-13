@@ -405,7 +405,7 @@ client.on('message', msg => {
 
 client.on('message', async message => {
   if (message.content.toLowerCase() === 'selam bot') {
-  if (message.author.id ==! '483221261502119938') return message.channel.send('Benimle sadece Mockir bu şekilde konuşabilir.');
+  if (!message.author.id === '483221261502119938') return message.channel.send('Benimle sadece Mockir bu şekilde konuşabilir.');
       message.channel.send(' Selam Mockir nasılsın?')
   }
 });
