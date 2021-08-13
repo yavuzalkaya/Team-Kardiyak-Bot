@@ -17,7 +17,7 @@ const { readdirSync } = require('fs'); // tanımlamalar
 const { join } = require('path'); // tanımlamalar
 
 const prefix = işaret.prefix
-const prefix = işaret.token
+const token = işaret.token
 
 
 client.on('ready', () => {
