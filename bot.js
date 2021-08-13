@@ -23,7 +23,7 @@ const token = işaret.token
 client.on('ready', () => {
     console.log(`${client.user.tag} botu kullanıma hazır`)
     const durumlar = [
-      "tk!help",
+      "d!help",
       "Güncellemeleri ve yenilikleri önceden öğrenmek ve kullanmak için Beta Discord sunucumuza gelebilirsiniz.",
       `Tam ${client.guilds.cache.size} sunucuda aktif olarak kullanılıyorum!!!`
     ]
@@ -330,7 +330,7 @@ client.on('message', async message => {
       if (!message.guild.me.voice.channel) return message.channel.send('Bot bir sesli kanalda değil.')
       if (message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send('Bot ile aynı sesli kanalda değilsiniz.')
       message.member.voice.channel.leave()
-      message.channel.send('Sesli kanaldan çıktım. Tekrar şarkı dinlemek istersen tk!play yazman yeterli..')
+      message.channel.send('Sesli kanaldan çıktım. Tekrar şarkı dinlemek istersen d!play yazman yeterli..')
     }
 });
 
@@ -366,7 +366,7 @@ client.on('message', msg => {
     msg.channel.send('Selam dostum, nasılsın?');
   }
   if (msg.content.toLowerCase() === prefix) {
-    msg.channel.send('tk!help yazarak bot ile ilgili ayrıntılı bilgiye erişebilirsiniz.');
+    msg.channel.send('d!help yazarak bot ile ilgili ayrıntılı bilgiye erişebilirsiniz.');
   }
   if (msg.content.toLowerCase() === 'merhaba') {
     msg.channel.send(`<@${msg.author.id}>` + ' merhaba dostum, nasılsın?')
@@ -399,7 +399,7 @@ client.on('message', msg => {
     msg.channel.send('https://discord.gg/GZv84fm2ad');
   }
   if (msg.content.toLowerCase() === prefix + 'test') {
-    msg.channel.send('Mitzi Bot Çalışıyor!\n\n`tk!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
+    msg.channel.send('Mitzi Bot Çalışıyor!\n\n`d!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
   }
 });
 
@@ -429,13 +429,13 @@ client.on('message', message => {
     .setDescription('Size nasıl yardımcı olabilirim?')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('**YENİ GÜNCELLEME**', '**-** tk!covid ve tk!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
-    .addField('tk!bilgi', 'Botun istatistiklerini gösterir.')
-    .addField('tk!beta', 'Botun Beta deneme sunucusunun linkini gönderir.')
-    .addField('tk!komutlar', 'Mitzi Bot komutlarını gösterir. ')
-    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar. ')
-    .addField('tk!istatistik', 'Botun istatistiklerini gösterir.')
-    .addField('tk!öneri <fikir>', 'Bota sizce neler eklemeliyiz? Fikirlerinizi bizimle paylaşmalısınız.')
+    .addField('**YENİ GÜNCELLEME**', '**-** d!covid ve d!covidtr komutu eklenmiştir. Bu sayede Dünyada ve Türkiyedeki anlık korona değerlerini öğrenebilirsiniz.')
+    .addField('d!bilgi', 'Botun istatistiklerini gösterir.')
+    .addField('d!beta', 'Botun Beta deneme sunucusunun linkini gönderir.')
+    .addField('d!komutlar', 'Mitzi Bot komutlarını gösterir. ')
+    .addField('d!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar. ')
+    .addField('d!istatistik', 'Botun istatistiklerini gösterir.')
+    .addField('d!öneri <fikir>', 'Bota sizce neler eklemeliyiz? Fikirlerinizi bizimle paylaşmalısınız.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -453,7 +453,7 @@ client.on('message', message => {
     .addField('Yapımcı', 'Mockir 👑#2102 (Mockir Medya Kurucusu)')
     .addField('Tasarımcımız', 'Albus.png #1290')
     .addField('Destekleyiciler ', '[MockirMedya(Beta Deneme Sunucusu)](https://discord.gg/h8stvaDQnP)')
-    .addField('tk!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
+    .addField('d!botdavet', 'Mitzi Botu sunucunuza davet etmenizi sağlar.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -479,11 +479,11 @@ client.on('message', message => {
     .setTitle('Mitzi Bot Moderasyon Komutları')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('tk!ban <kişi>', 'Etiketlediğiniz kişiyi banlamanızı sağlar. ')
-    .addField('tk!kick <kişi>', 'Etiketlediğiniz kişiyi kicklemenizi sağlar. ')
-    .addField('tk!oylama <seçenek1> <seçenek2>', 'Belirttiğiniz 2 seçenek arasında oylama başlatırsınız.\n(Rolleri Yönet özelliği olan her kişi veya rol kullanabilir.)')
-    .addField('tk!sil <sayı>', 'Belirttiğiniz kadar mesajı silmenizi sağlar. ')
-    .addField('tk!çekiliş <süre> <ödül>', 'HENÜZ DÜZENLENİYOR. ')
+    .addField('d!ban <kişi>', 'Etiketlediğiniz kişiyi banlamanızı sağlar. ')
+    .addField('d!kick <kişi>', 'Etiketlediğiniz kişiyi kicklemenizi sağlar. ')
+    .addField('d!oylama <seçenek1> <seçenek2>', 'Belirttiğiniz 2 seçenek arasında oylama başlatırsınız.\n(Rolleri Yönet özelliği olan her kişi veya rol kullanabilir.)')
+    .addField('d!sil <sayı>', 'Belirttiğiniz kadar mesajı silmenizi sağlar. ')
+    .addField('d!çekiliş <süre> <ödül>', 'HENÜZ DÜZENLENİYOR. ')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
@@ -496,16 +496,16 @@ client.on('message', message => {
     .setTitle('Mitzi Bot Komutları')
     .setColor("RANDOM")
     .setThumbnail('https://cdn.discordapp.com/attachments/826027915179065364/826150679546036234/logo.png')
-    .addField('tk!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
-    .addField('tk!play', 'Adınız yazdığınız şarkıyı çalar. ')
-    .addField('tk!ayrıl', 'Bot bir sesli kanalda iken sesli kanaldan ayrılmasını sağlar.') 
-    .addField('tk!kullanıcı <kişi>', 'Etiketlediğiniz kişinin bilgilerini aktarır. ')
-    .addField('tk!moderasyon', 'Moderasyon komutlarını içerir. ')
-    .addField('tk!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
-    .addField('tk!oylama <birinci kişi> <ikinci kişi> ', 'Belirttiğiniz kişiler arasında oylama yapar. ')
-    .addField('tk!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ')
-    .addField('tk!covid', 'Tüm dünyanın korona değerlerini gösterir.')
-    .addField('tk!covidtr', 'Türkiyenin korona değerlerini gösterir.')
+    .addField('d!help', 'Bot ile ilgili ayrıntılı bilgi için bir panel açılır. ')
+    .addField('d!play', 'Adınız yazdığınız şarkıyı çalar. ')
+    .addField('d!ayrıl', 'Bot bir sesli kanalda iken sesli kanaldan ayrılmasını sağlar.') 
+    .addField('d!kullanıcı <kişi>', 'Etiketlediğiniz kişinin bilgilerini aktarır. ')
+    .addField('d!moderasyon', 'Moderasyon komutlarını içerir. ')
+    .addField('d!avatar', 'Mesajı yazan kişinin profil resmini gönderir. ') 
+    .addField('d!oylama <birinci kişi> <ikinci kişi> ', 'Belirttiğiniz kişiler arasında oylama yapar. ')
+    .addField('d!oyunara <oyun> <arananoyuncuözellikleri>', 'Bir oyun arkadaşı aramanıza yardımcı olur ')
+    .addField('d!covid', 'Tüm dünyanın korona değerlerini gösterir.')
+    .addField('d!covidtr', 'Türkiyenin korona değerlerini gösterir.')
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
   }
