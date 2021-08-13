@@ -401,11 +401,15 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === prefix + 'test') {
     msg.channel.send('Mitzi Bot Çalışıyor!\n\n`d!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
   }
+  if (msg.content.toLowerCase() === 'selam bot') {
+
+    msg.channel.send('Mitzi Bot Çalışıyor!\n\n`d!help` yazarak komutlara erişebilirsiniz.\n\nMitzi Bot iyi günler diler.');
+  }
 });
 
 client.on('message', async message => {
   if (message.content.toLowerCase() === 'selam bot') {
-  if (!message.author.id('483221261502119938')) return message.channel.send('Benimle sadece Mockir bu şekilde konuşabilir.');
+  if (message.author.id ==! '483221261502119938') return message.channel.send('Benimle sadece Mockir bu şekilde konuşabilir.');
       message.channel.send(' Selam Mockir nasılsın?')
   }
 });
