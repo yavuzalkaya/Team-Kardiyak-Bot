@@ -335,16 +335,19 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-  if (message.content.startsWith(prefix + 'kayıt')) {
-  if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kullanıcı adı değiştirmek için yetkiniz yok.');
+  if (message.content.startsWith(prefix + 'dbdv')) {
+  let kayitsorumlusu = message.guild.roles.cache.find(r => r.id === "875068194153431051")
+  if (!message.member.hasRole(kayitsorumlusu)) return message.channel.send('Kayıt için yetkiniz yok.');
+  if (!message.member.hasPermission('MANAGE_NICKNAMES')) return message.channel.send('Kayıt için yetkiniz yok.');
   const args = message.content.split(' ').slice(2)
   let member = message.mentions.members.first();
-  let role = message.guild.roles.cache.find(r => r.id === "775800216950669393")
-  let roles = message.guild.roles.cache.find(r => r.id === "777867930268073984")
+  let role = message.guild.roles.cache.find(r => r.id === "875066519661453402")
+  let roles = message.guild.roles.cache.find(r => r.id === "875066692961722398")
   if (!member) return message.reply("Lütfen birini etiketleyiniz.")
   member.setNickname(args.join(" | "))
   member.roles.add(role)
   member.roles.remove(roles)
+     const channels = client.channels.cache.find(ch => ch.id === '875733783133954078')
      const kanal = new MessageEmbed()
 
     .setTitle('KAYIT')
@@ -353,6 +356,7 @@ client.on('message', async message => {
     .addField('Kayıt Eden Yetkili', `<@${message.author.id}>` )
     .setFooter('Bot ile ilgili sorun ve sorularınızı discord sunucumuza gelerek yardım alabilirsiniz.')
     message.channel.send(kanal);
+    channels.send(kanal);
   }
 });
   
