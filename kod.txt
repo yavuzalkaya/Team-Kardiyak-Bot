@@ -216,4 +216,4 @@ client.on('message', message => {
 });
 
 
-client.login('ODIxNjU5NDAzODYxMjI5NTY4.YFG78w.I3qtnBPXcvtb4uy3aV0U0FIbkoY');
+client.login('your_bot_token');
